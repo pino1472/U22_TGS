@@ -9,14 +9,16 @@ public class CanonAt : MonoBehaviour
     public Transform muzzle;//※3
     GameObject target;
     // public float speed;//※3
-    //public GameObject target;
-    private GameObject nearObj;         //最も近いオブジェクト
-    private float searchTime = 0;    //経過時間
-    int cooltime;
-    public int BurretModeTriggerP;
-    CanonAt CanonAtSC;
-    CanonatNpc CanonNPCAtSC;
-    public GameObject CanonB;
+    public GameObject nearObj;         //最も近いオブジェクト
+    public float searchTime = 0;    //経過時間
+    float cooltime = 0;
+
+    //public GameObject CanonB;
+
+    public float speed;//弾の移動スピード
+
+    public bool attackCheck;
+    public bool PlayerCheck, NpcCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -24,34 +26,22 @@ public class CanonAt : MonoBehaviour
 
         //nearObj = serchTag(gameObject, "Player");
 
-        CanonNPCAtSC = CanonB.GetComponent<CanonatNpc>();
+        //CanonNPCAtSC = CanonB.GetComponent<CanonatNpc>();
 
     }
 
 
     void Update()
     {
-        if (CanonNPCAtSC.BurretModeTriggerN == 1)
-        {
-            this.gameObject.GetComponent<CanonAt>().enabled = false;
-            BurretModeTriggerP = 0;
-            CanonNPCAtSC.enabled = true;
-        }
-        //else if(CanonNPCAtSC.BurretModeTriggerN == 0)
+        cooltime += Time.deltaTime;
+
+        //if (searchTime >= 1.0f)
         //{
-        //    this.GetComponent<CanonAt>().enabled = true;
+        //    //最も近かったオブジェクトを取得
+        //    nearObj = serchTag(gameObject, "Player");
+        //    //経過時間を初期化
+        //    searchTime = 0;
         //}
-        cooltime++;
-
-        searchTime += Time.deltaTime;
-
-        if (searchTime >= 1.0f)
-        {
-            //最も近かったオブジェクトを取得
-            nearObj = serchTag(gameObject, "Player");
-            //経過時間を初期化
-            searchTime = 0;
-        }
         // float step = Time.deltaTime * speed;
         //transform.position = Vector3.MoveTowards(transform.position, nearObj.transform.position, step);
         //対象の位置の方向を向く
@@ -99,38 +89,97 @@ public class CanonAt : MonoBehaviour
         return targetObj;
 
     }
-
-    public void OnTriggerStay(Collider ATRange)
+    //攻撃範囲に対象がいるか
+    public void OnTriggerStay(Collider collider)
     {
-
-        if (ATRange.gameObject.tag == "Player")
+        if (!attackCheck)
         {
-            //CanonNPCAtSC.enabled = false;
-            BurretModeTriggerP = 1;
-            if (searchTime >= 1.0f)
+            if (collider.gameObject.tag == "Player" || collider.gameObject.tag == "Player_NPC")
             {
-                //最も近かったオブジェクトを取得
-                nearObj = serchTag(gameObject, "Player");
-                //経過時間を初期化
-                searchTime = 0;
+                attackCheck = true;
             }
-            //transform.LookAt(nearObj.transform);
-            if (cooltime >= 60)
+        }
+        else
+        {
+            if (nearObj)
             {
-                if (ATRange.gameObject.tag == "Player")
+                if (cooltime >= 2)
                 {
                     StartCoroutine("Turret");
                     cooltime = 0;
-
                 }
             }
+            else
+            {
+                if (NpcCheck)
+                {
+                    searchTime += Time.deltaTime;
+                    if (collider.gameObject.tag == "Player_NPC")
+                    {
+                        //最も近かったオブジェクトを取得
+                        nearObj = serchTag(gameObject, "Player_NPC");
+                        searchTime = 0;
+                    }
+                    if (searchTime > 3)
+                    {
+                        NpcCheck = false;
+                        searchTime = 0;
+                    }
+
+                }
+                else if (collider.gameObject.tag == "Player_NPC")
+                {
+                    nearObj = serchTag(gameObject, "Player_NPC");
+                    NpcCheck = true;
+                }
+                else if (collider.gameObject.tag == "Player")
+                {
+                    nearObj = serchTag(gameObject, "Player");
+                    PlayerCheck = true;
+                }
+            }
+            //transform.LookAt(nearObj.transform);
+
+
+
         }
     }
 
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Player")
-    //}
+    void OnTriggerEnter(Collider collider)
+    {
+        if (!NpcCheck)
+            if (collider.gameObject.tag == "Player")
+            {
+                PlayerCheck = true;
+                //最も近かったオブジェクトを取得
+                nearObj = serchTag(gameObject, "Player");
+            }
+        if (!PlayerCheck)
+            if (collider.gameObject.tag == "Player_NPC")
+            {
+                NpcCheck = true;
+                //最も近かったオブジェクトを取得
+                nearObj = serchTag(gameObject, "Player_NPC");
+            }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (PlayerCheck)
+            if (collider.gameObject.tag == "Player")
+            {
+                attackCheck = false;
+                PlayerCheck = false;
+                nearObj = null;
+            }
+        if (collider.gameObject.tag == "Player_NPC")
+        {
+            attackCheck = false;
+            NpcCheck = false;
+        }
+    }
+
+
 
     public IEnumerator Turret()//※3
     {
@@ -141,6 +190,7 @@ public class CanonAt : MonoBehaviour
         ObjBs.transform.position = muzzle.position;//※3
                                                    //force = this.gameObject.transform.forward * speed;//※3
                                                    //Destroy(bullets.gameObject, 2);//※3
+        ObjBs.GetComponent<CanonBullet>().nearObj = nearObj;
 
     }
 }
