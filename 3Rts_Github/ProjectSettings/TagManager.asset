@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tower
+  - Player_NPC
+  - Tower_center
+  - Tower_left
+  - Tower_rigth
+  - AllyCore_C
+  - DashCollider
+  - EnemyCore
+  - AllyCore
+  - Enemy
+  - P_Sword
+  - NPC_Sword"
+  - TowerBurret
+  - NPC_Sword
+  - Enemy_Sword
+  - Boss_Sword
+  - TopLine
+  - BotLine
+  - P_Arrow
+  - Enemy_Arrow
+  - EnemyArrow
+  - MidLine
+  - PtBullet
+  - NpcTBullet
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Wall
+  - Enemys
+  - MiniMap
+  - Player
+  - Tower
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
