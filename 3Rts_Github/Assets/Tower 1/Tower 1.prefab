@@ -76,8 +76,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fe3af1b0e54884e8f3da9dc8eebe98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjB: {fileID: 3918158821577472556, guid: 2a2338eca3727d541a59f93824e1c671, type: 3}
+  ObjB: {fileID: 5543498623543513331, guid: 3ab294696b72632489c8bae5b20ad616, type: 3}
   muzzle: {fileID: 6473483546217904323}
+  nearObj: {fileID: 0}
+  searchTime: 0
+  speed: 0
+  attackCheck: 0
+  PlayerCheck: 0
+  NpcCheck: 0
 --- !u!1 &6473483546217904320
 GameObject:
   m_ObjectHideFlags: 0
