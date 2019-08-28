@@ -184,7 +184,6 @@ public class CanonAt : MonoBehaviour
     public IEnumerator Turret()//※3
     {
         //BurretModeTriggerP = 1;
-        yield return new WaitForSeconds(0.5f);//※3 //Vector3 force;//※3
 
         GameObject ObjBs = GameObject.Instantiate(ObjB) as GameObject;//※3
         ObjBs.transform.position = muzzle.position;//※3
@@ -192,6 +191,7 @@ public class CanonAt : MonoBehaviour
                                                    //Destroy(bullets.gameObject, 2);//※3
         ObjBs.GetComponent<CanonBullet>().nearObj = nearObj;
 
+        yield return null;//※3 //Vector3 force;//※3
     }
 }
 

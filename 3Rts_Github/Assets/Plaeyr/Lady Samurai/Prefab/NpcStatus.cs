@@ -32,7 +32,7 @@ public class NpcStatus : MonoBehaviour
             Hp -= 10;;
         }
 
-        if(other.gameObject.tag  == "NpcTBullet")
+        if(other.gameObject.tag  == "PtBullet")
         {
             Hp -= 50;
         }

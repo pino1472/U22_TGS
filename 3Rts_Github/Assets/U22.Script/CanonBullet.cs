@@ -8,7 +8,7 @@ public class CanonBullet : MonoBehaviour
     public float speed;//移動スピード
     private Vector3 vec;
     public GameObject nearObj;         //最も近いオブジェクト
-                                        //private float searchTime = 0;    //経過時間
+                                       //private float searchTime = 0;    //経過時間
 
 
     // Start is called before the first frame update
@@ -44,13 +44,18 @@ public class CanonBullet : MonoBehaviour
         // step = Time.deltaTime * speed;
         if (nearObj)
         {
-        transform.position = Vector3.MoveTowards(transform.position, nearObj.transform.position, speed * Time.deltaTime);
+            Vector3 targetPos = nearObj.transform.position;
+
+            // ターゲットのY座標を自分と同じにすることで2次元に制限する。
+            targetPos.y = this.transform.position.y;
+            this.transform.LookAt(targetPos);
+            transform.position = Vector3.MoveTowards(transform.position, nearObj.transform.position, speed * Time.deltaTime);
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-      
+
     }
 
     ////指定されたタグの中で最も近いものを取得
