@@ -36,7 +36,7 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float var = Input.GetAxis("L Stick V");
+        float var = Input.GetAxisRaw("L Stick V");
         //float har = Input.GetAxis("L Stick H");
         time += Time.deltaTime; 
         if(time > cool)
@@ -101,7 +101,7 @@ public class menu : MonoBehaviour
         {
             if (gameplay[i].name == "start")
             {
-                FadeManager.Instance.LoadScene("Game",2.0f);
+                SceneManager.LoadScene("Game");
             }
             else if (gameplay[i].name == "practice")
             {
