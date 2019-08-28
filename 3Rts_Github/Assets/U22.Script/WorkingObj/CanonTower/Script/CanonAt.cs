@@ -189,6 +189,8 @@ public class CanonAt : MonoBehaviour
         ObjBs.transform.position = muzzle.position;//※3
                                                    //force = this.gameObject.transform.forward * speed;//※3
                                                    //Destroy(bullets.gameObject, 2);//※3
+                                                   
+        if(nearObj)
         ObjBs.GetComponent<CanonBullet>().nearObj = nearObj;
 
         yield return null;//※3 //Vector3 force;//※3

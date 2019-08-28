@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Startmenu.unity
     guid: ca092f4c5111c724e939c0f924af8c94
   - enabled: 1
-    path: Assets/UI/Gamestrat UI/Startmeny.unity
+    path: Assets/Scenes/Startmeny.unity
     guid: 05cbd5f6ef49f814994060f539dcbd3c
   - enabled: 1
     path: Assets/Scenes/Game.unity
