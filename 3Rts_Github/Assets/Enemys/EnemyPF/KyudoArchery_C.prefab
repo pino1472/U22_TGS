@@ -2356,6 +2356,7 @@ MonoBehaviour:
   e_Animator: {fileID: 9165512787768468356}
   plyerDistance: 10
   stopDistance: 5
+  tagName: Tower_center
 --- !u!1 &9165512787775721952
 GameObject:
   m_ObjectHideFlags: 0

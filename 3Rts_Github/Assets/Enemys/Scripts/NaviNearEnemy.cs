@@ -5,33 +5,35 @@ using UnityEngine.AI;
 
 namespace Game.Enemy
 {
-    public class NaviLongEnemy_rigth : MonoBehaviour
+
+    public class NaviNearEnemy : MonoBehaviour
     {
         private NavMeshAgent agent;
-        public Animator e_Animator;
-        private GameObject middleTower;// タワー
-        private GameObject msterTower;//間地点
+        private Animator e_Animator;
+        private GameObject msterTower;// 本丸タワー
+        private GameObject middleTower;// 中間タワー　
         private GameObject player;// プレイヤー
-        [SerializeField]private Transform targget;// 目的地
+        private Transform targget;// 目的地
         private GameObject nearNpc;// 近くの特定のタグ付きオブジェクト        
         private float agentDistance;// プレイヤー、敵間の距離
-        private float towerDistance;// 敵、本丸タワー間の距離
+        private float towerDistance;// 敵、タワー間の距離
         private float middleTowerDistance;//敵、中間タワー間の距離
         private float npcDistance;// 敵、プレイヤーのNPC間の距離
-        [SerializeField] private float plyerDistance = 10f;// プレイヤーを検知する距離
-        [SerializeField] private float stopDistance = 5f;// 停止距離
-
-        [SerializeField]bool change;//タワー変更フラグ
-
+        [SerializeField] private float plyerDistance = 5f;// プレイヤーを検知する距離
+        [SerializeField] private float stopDistance = 1.6f;// 停止距離
+        [SerializeField] private string tagName;//タグの名前
         private float searchTime = 0;//serchTagの探す時間
-
+        bool change;//タワー変更フラグ
         void Start()
         {
-            agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
-            middleTower = GameObject.FindWithTag("Tower_rigth");// タワーを取得
-            msterTower = GameObject.FindWithTag("Tower");
-            player = GameObject.FindWithTag("Player");// プレイヤーを取得
             change = false;
+            e_Animator = gameObject.GetComponent<Animator>();//アニメーターのコンポーネントの取得
+            agent = gameObject.GetComponent<NavMeshAgent>();//NaviMeshAgentのコンポーネントを取得
+
+            msterTower = GameObject.FindWithTag("Tower");// タワーを取得
+            middleTower = GameObject.FindWithTag(tagName/*"Tower_center"*/);// 中間タワーを取得
+
+            player = GameObject.FindWithTag("Player");// プレイヤーを取得
 
             //タワーがあれば
             if (middleTower)
@@ -96,8 +98,9 @@ namespace Game.Enemy
                         // 停止距離になったら
                         if (agentDistance <= stopDistance)
                         {
-                            //攻撃
-                            ArrowAttack();
+                            
+                            Attack();
+
                         }
                         else
                         {
@@ -132,7 +135,9 @@ namespace Game.Enemy
                         if (agentDistance <= stopDistance)
                         {
                             //攻撃
-                            ArrowAttack();
+
+                            Attack();
+    
                         }
                         else
                         {
@@ -225,7 +230,7 @@ namespace Game.Enemy
             if (towerDistance <= stopDistance)
             {
                 //攻撃
-                ArrowAttack();
+                Attack();
             }
             else
             {
@@ -243,7 +248,7 @@ namespace Game.Enemy
             if (npcDistance <= stopDistance)
             {
                 //攻撃
-                ArrowAttack();
+                Attack();
             }
             else
             {
@@ -255,7 +260,7 @@ namespace Game.Enemy
         /// <summary>
         /// 攻撃関数
         /// </summary>
-        void ArrowAttack()
+        void Attack()
         {
             // 走るアニメーションの停止
             e_Animator.SetBool("IsRun", false);
@@ -270,3 +275,4 @@ namespace Game.Enemy
         }
     }
 }
+

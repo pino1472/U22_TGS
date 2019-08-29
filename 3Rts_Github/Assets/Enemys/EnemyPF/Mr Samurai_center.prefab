@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6214444622211940878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918813509090593656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070c4cd499e5cac4d8e3e83508e21331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plyerDistance: 5
+  stopDistance: 1.6
+  tagName: Tower_center
 --- !u!1001 &5104654095668829329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,8 +371,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6010024748163093118, guid: f7b9cbf7680a79c4dbd33664a001ea96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7b9cbf7680a79c4dbd33664a001ea96, type: 3}
+--- !u!1 &3918813509090593656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5078990004509622443, guid: f7b9cbf7680a79c4dbd33664a001ea96,
+    type: 3}
+  m_PrefabInstance: {fileID: 8078998549885782995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3923908682154480614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074105735683840053, guid: f7b9cbf7680a79c4dbd33664a001ea96,

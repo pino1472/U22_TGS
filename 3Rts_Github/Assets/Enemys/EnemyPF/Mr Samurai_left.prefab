@@ -305,14 +305,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3098891031382445489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ea32882760d1d4db8c6e1201eaffdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 070c4cd499e5cac4d8e3e83508e21331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_Animator: {fileID: 3050375714537484249}
-  targget: {fileID: 0}
-  plyerDistance: 10
+  plyerDistance: 5
   stopDistance: 1.6
-  change: 0
+  tagName: Tower_left
 --- !u!1 &3098911284644267589
 GameObject:
   m_ObjectHideFlags: 0
