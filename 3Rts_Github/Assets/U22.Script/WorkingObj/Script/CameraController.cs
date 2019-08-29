@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         //CameraのAxisに相対的な位置をlocalPositionで指定
-        cam.transform.localPosition = new Vector3(0, 1.5f, -3f);
+        cam.transform.localPosition = new Vector3(0, 2.0f, -5f);
         //CameraとAxisの向きを最初だけそろえる
         cam.transform.localRotation = transform.rotation;
         //コントローラーが何台接続されているか

@@ -105,7 +105,7 @@ public class menu : MonoBehaviour
             }
             else if (gameplay[i].name == "practice")
             {
-
+                SceneManager.LoadScene("Practice");
             }
             else if (gameplay[i].name == "end")
             {
