@@ -23,15 +23,14 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
     float agentDistance;// プレイヤーのNPC、敵間の距離
     float coreDistance;// tower、PlayerNPC間の距離
     float distance; //top側のタワーとの距離
-    [SerializeField] float enemyDistance = 10f;// エネミーを検知する距離
     [SerializeField] float stopDistance = 5f;// 停止距離
-
+    [SerializeField]float enemySearhDistance = 10f; //エネミーを感知する距離
     //出現時のラインの判定
     [SerializeField] bool isBotLine = false;
     bool isTopLine = false;
     //bool isMidLine = false;
 
-    [SerializeField]bool enemyAttack;
+    [SerializeField]bool isEnemyAttack;// Enemyに王撃するフラグ
 
     private float searchTime = 0;//serchTagの探す時間
 
@@ -133,6 +132,13 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
     void Update()
     {
         coreDistance = Vector3.Distance(this.agent.transform.position, core.transform.position);
+        
+        //最も近かった、"Enemy"タグのオブジェクトを取得
+        nearEnemy = serchTag(gameObject, "Enemy");
+        //nearEnemyがいたら
+        if(nearEnemy)agentDistance = Vector3.Distance(this.agent.transform.position, nearEnemy.transform.position);
+
+
         //停止距離より離れていたら
         if (!(agentDistance <= stopDistance
               && coreDistance <= stopDistance))
@@ -140,31 +146,14 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             // 走るアニメーションの再生
             p_Animator.SetBool("IsRun", true);
         }
-        if (enemyAttack)
+        
+
+        if (enemySearhDistance >= agentDistance && nearEnemy )
+        {           
+            target = nearEnemy.transform;
+        }       
+        else 
         {
-            // nearEnemyの中にオブジェクトが入っていたら
-            if (nearEnemy)
-            {
-                // EnemyとNPCの距離
-                agentDistance = Vector3.Distance(this.agent.transform.position,
-                                                    nearEnemy.transform.position);
-                // Enemyとの距離が近くのとき
-                if (agentDistance <= enemyDistance)
-                {
-                    // 目的地をEnemyに設定
-                    target = nearEnemy.transform;
-                    // AttackEnemy();
-                }
-            }
-            else
-            {
-                enemyAttack = false;
-            }
-        }
-        else
-        {
-            // サーチ時間カウント
-            searchTime += Time.deltaTime;
             if (isBotLine)
             {
                 ChaseTower("Tower_left", "LeftPoint", botTower);
@@ -182,19 +171,14 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             {
                 target = core.transform;
             }
-
-            if (agent.GetComponent<NavMeshAgent>().isStopped == true)
-            {
-                // Naviを入れる
-                agent.GetComponent<NavMeshAgent>().isStopped = false;
-            }
+            
         }
 
-
-        //if (target == core.transform)
-        //{
-        //    //AttackTower();
-        //}
+        if (agent.GetComponent<NavMeshAgent>().isStopped == true)
+        {
+            // Naviを入れる
+            agent.GetComponent<NavMeshAgent>().isStopped = false;
+        }    
 
         //ターゲットが入っていたら
         if (target)
@@ -252,69 +236,63 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
     /// <summary>
     /// Enemyの検知、攻撃の関数
     /// </summary>
-    void AttackEnemy()
-    {
-        if (agentDistance <= stopDistance)
-        {
-            //攻撃
-            Attack();
-        }
-        else
-        {
-            // Naviを動かす
-            agent.GetComponent<NavMeshAgent>().isStopped = false;
-            p_Animator.SetBool("IsRun", true);
-        }
-    }
+    //void AttackEnemy()
+    //{
+    //    if (agentDistance <= stopDistance)
+    //    {
+    //        //攻撃
+    //        Attack();
+    //    }
+    //    else
+    //    {
+    //        // Naviを動かす
+    //        agent.GetComponent<NavMeshAgent>().isStopped = false;
+    //        p_Animator.SetBool("IsRun", true);
+    //    }
+    //}
 
-    void AttackTower()
-    {
-        if (coreDistance <= stopDistance)
-        {
-            Attack();
-        }
-        else
-        {
-            // Naviを動かす
-            agent.GetComponent<NavMeshAgent>().isStopped = false;
-        }
-    }
+    //void AttackTower()
+    //{
+    //    if (coreDistance <= stopDistance)
+    //    {
+    //        Attack();
+    //    }
+    //    else
+    //    {
+    //        // Naviを動かす
+    //        agent.GetComponent<NavMeshAgent>().isStopped = false;
+    //    }
+    //}
 
 
     void ChaseTower(string tagName, string pointName, Transform[] lane_Tower)
     {
-        if (searchTime >= 1.0f)
+        if (GameObject.FindGameObjectWithTag(tagName))
         {
-            if (GameObject.FindGameObjectWithTag(tagName))
-            {
-                // "tower"という名前のタグ名の付いたGameObjectを取得しLinqでTransformを抽出         
-                Transform[] lane_tower = GameObject.FindGameObjectsWithTag(tagName).Select(e => e.transform).ToArray();
-                // OrderByで距離(昇順)でソート         
-                lane_Tower = lane_tower.OrderBy(e => Vector3.Distance(e.transform.position, p_core.transform.position)).ToArray();
-            }
-            else
+            // "tower"という名前のタグ名の付いたGameObjectを取得しLinqでTransformを抽出         
+            Transform[] lane_tower = GameObject.FindGameObjectsWithTag(tagName).Select(e => e.transform).ToArray();
+            // OrderByで距離(昇順)でソート         
+            lane_Tower = lane_tower.OrderBy(e => Vector3.Distance(e.transform.position, p_core.transform.position)).ToArray();
+        }
+        else
+        {
+            lane_Tower[0] = core.transform;
+        }
+        //serchTag(gameObject, "Tower_left");
+        if (lane_Tower[0].name == pointName)
+        {
+            Transform hoge = lane_Tower[0];
+            if (lane_Tower.Length == 1)
             {
                 lane_Tower[0] = core.transform;
             }
-            //serchTag(gameObject, "Tower_left");
-            if (lane_Tower[0].name == pointName)
+            else
             {
-                Transform hoge = lane_Tower[0];
-                if (lane_Tower.Length == 1)
-                {
-                    lane_Tower[0] = core.transform;
-                }
-                else
-                {
-                    lane_Tower[0] = lane_Tower[1];
-                    lane_Tower[1] = hoge;
-                }
+                lane_Tower[0] = lane_Tower[1];
+                lane_Tower[1] = hoge;
             }
-            //最も近かった、"Enemy"タグのオブジェクトを取得
-            nearEnemy = serchTag(gameObject, "Enemy");
+        }       
 
-            searchTime = 0;
-        }
         if (lane_Tower[0])
         {
             target = lane_Tower[0].transform;
@@ -338,13 +316,14 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
 
     void SearchLine()
     {
+       
         if (botTower.Length >= 2)
         {
             _nearTower[0] = serchTag(gameObject, "BotLine" /*"Tower_left"*/);
         }
         else
         {
-            _nearTower[0] = serchTag(gameObject, "BotLine"); ;
+            _nearTower[0] = serchTag(gameObject, "BotLine"); 
         }
         if (topTower.Length >= 2)
         {
@@ -352,7 +331,7 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
         }
         else
         {
-            _nearTower[1] = serchTag(gameObject, "TopLine"); ;
+            _nearTower[1] = serchTag(gameObject, "TopLine"); 
         }
         if (midTower.Length >= 2)
         {
@@ -379,43 +358,35 @@ public class NaviPlayerNpc_aOk : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "EnemyArrow")
-        {
-            enemyAttack = true;
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy_Sword")
-        {
-            enemyAttack = true;
-        }
-    }
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    //Debug.Log("Trigger:" + other.gameObject.tag);
-    //    if (other.gameObject.tag == "TopLine")
-    //    {
-    //        isTopLine = true;
-    //        //Debug.Log("Top");
-    //    }
-    //    else
-    //    {
-    //        isTopLine = false;
-    //    }
 
-    //    if (other.gameObject.tag == "BotLine")
+    //private void OnCollisionEnter(Collision collision)
+    //{
+        //if (collision.gameObject.tag == "EnemyArrow" || collision.gameObject.tag == "Enemy")
+        //{
+        //    enemyAttack = true;
+        //}
+    //}
+    //private void boOnTriggerEnter(Collider collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy_Sword" || collision.gameObject.tag == "Enemy" 
+    //                                 || collision.gameObject.tag == "EnemyArrow")
     //    {
-    //        //ボットレーンにいる
-    //        isBotLine = true;
-    //        //Debug.Log("bot");
-    //    }
-    //    else
-    //    {
-    //        //ボットレーンいない
-    //        isBotLine = false;
+    //        enemyAttack = true;
     //    }
     //}
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy_Sword" || other.gameObject.tag == "Enemy"
+    //                                 || other.gameObject.tag == "Enemy_Arrow")
+    //    {
+    //        isEnemyAttack = true;
+    //        nearEnemy = other.gameObject;
+    //        Debug.Log(nearEnemy);
+    //    }
+    //    else
+    //    {
+    //        isEnemyAttack = false;
+    //    }
+    //}
+  
 }

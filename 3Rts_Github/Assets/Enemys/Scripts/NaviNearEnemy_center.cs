@@ -19,8 +19,8 @@ namespace Game.Enemy
         private float towerDistance;// 敵、タワー間の距離
         private float middleTowerDistance;//敵、中間タワー間の距離
         private float npcDistance;// 敵、プレイヤーのNPC間の距離
-        [SerializeField] private float plyerDistance = 10f;// プレイヤーを検知する距離
-        [SerializeField] private float stopDistance = 2f;// 停止距離
+        [SerializeField] private float plyerDistance = 5f;// プレイヤーを検知する距離
+        [SerializeField] private float stopDistance = 1.6f;// 停止距離
         private float searchTime = 0;//serchTagの探す時間
         bool change;//タワー変更フラグ
         void Start()
