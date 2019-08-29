@@ -597,12 +597,10 @@ GameObject:
   - component: {fileID: 95685920248245596}
   - component: {fileID: 788693277794225526}
   - component: {fileID: 1662551570606921458}
+  - component: {fileID: 4257441373363987955}
   - component: {fileID: 1025234926919744735}
   - component: {fileID: 7483877035335578230}
-<<<<<<< HEAD
   - component: {fileID: 4358480063627944677}
-=======
->>>>>>> rikuriku
   m_Layer: 0
   m_Name: Lady Samurai
   m_TagString: Player_NPC
@@ -662,10 +660,10 @@ MonoBehaviour:
   midTower: []
   topTower: []
   target: {fileID: 0}
+  enemyDistance: 10
   stopDistance: 2
-  enemySearhDistance: 10
   isBotLine: 0
-  isEnemyAttack: 0
+  enemyAttack: 0
 --- !u!195 &1662551570606921458
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -688,6 +686,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &4257441373363987955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166246725927752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.96, z: 0.47}
+  m_Center: {x: 0, y: -0.36, z: 0.03}
 --- !u!136 &1025234926919744735
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -715,7 +726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 600
-<<<<<<< HEAD
 --- !u!54 &4358480063627944677
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -732,8 +742,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
-=======
->>>>>>> rikuriku
 --- !u!1 &1166321755608322
 GameObject:
   m_ObjectHideFlags: 0
