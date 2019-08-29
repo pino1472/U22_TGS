@@ -20,11 +20,11 @@ public class Imdelete : MonoBehaviour
     {
         if (other.gameObject.tag == "Player_NPC")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         if (other.gameObject.tag == "Player")
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

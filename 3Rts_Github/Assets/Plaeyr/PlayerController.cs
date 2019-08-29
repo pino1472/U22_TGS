@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private float boost;
-    [SerializeField] int count,countMax;
-    [SerializeField]bool charge;
+    [SerializeField] int count, countMax;
+    [SerializeField] bool charge;
     public Animator animCon;  //  アニメーションするための変数
     public AnimatorStateInfo stateInfo;
     public bool HPvar { get; set; }
@@ -77,68 +77,74 @@ public class PlayerController : MonoBehaviour
     //行動関連
     private void Move()
     {
-        if(Time.timeScale != 0) { 
-        // ▼▼▼移動処理▼▼▼
-        if (inputHorizontal == 0 && inputVertical == 0)  //  テンキーや3Dスティックの入力（GetAxis）がゼロの時の動作
+        if (Time.timeScale != 0)
         {
-            animCon.SetBool("Run", false);
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
-        }
-        else
-        {
-            animCon.SetBool("Run", true);  //  Runモーションする
-        }
-        //if (animCon.GetBool("Run") == true)
-        //{
-        if (!stateInfo.IsTag("Attack")&&!stateInfo.IsName("act"))
-        {
-            velocity.y += Physics.gravity.y * Time.deltaTime;
-            // カメラの方向から、X-Z平面の単位ベクトルを取得
-            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-
-            // 方向キーの入力値とカメラの向きから、移動方向を決定
-            Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-
-            // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
-            rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
-
-            // キャラクターの向きを進行方向に
-            if (moveForward != Vector3.zero)
+            // ▼▼▼移動処理▼▼▼
+            if (inputHorizontal == 0 && inputVertical == 0)  //  テンキーや3Dスティックの入力（GetAxis）がゼロの時の動作
             {
-                transform.rotation = Quaternion.LookRotation(moveForward);
+                animCon.SetBool("Run", false);
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
             }
-            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
-            && !stateInfo.IsTag("rolling"))
+            else if (stateInfo.IsTag("Attack") || stateInfo.IsName("act"))
             {
-                animCon.SetTrigger("rolling");
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
             }
-        }
-        else
-        {
-            velocity.y += Physics.gravity.y * Time.deltaTime;
-            // カメラの方向から、X-Z平面の単位ベクトルを取得
-            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-
-            // 方向キーの入力値とカメラの向きから、移動方向を決定
-            Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-
-           
-            // キャラクターの向きを進行方向に
-            if (moveForward != Vector3.zero)
+            else
             {
-                transform.rotation = Quaternion.LookRotation(moveForward);
+                animCon.SetBool("Run", true);  //  Runモーションする
             }
-        }
-        //}
+            //if (animCon.GetBool("Run") == true)
+            //{
+            if (!stateInfo.IsTag("Attack") && !stateInfo.IsName("act"))
+            {
+                velocity.y += Physics.gravity.y * Time.deltaTime;
+                // カメラの方向から、X-Z平面の単位ベクトルを取得
+                Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
-        // ▼▼▼ジャンプ処理▼▼▼
-        //　ジャンプキー（デフォルトではSpace）を押したらY軸方向の速度にジャンプ力を足す
-        if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("joystick A"))
-            && !stateInfo.IsName("Jump"))
-        {
-            animCon.SetBool("Jump", true);
-        }
+                // 方向キーの入力値とカメラの向きから、移動方向を決定
+                Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+                // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+                rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+
+                // キャラクターの向きを進行方向に
+                if (moveForward != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(moveForward);
+                }
+                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
+                && !stateInfo.IsTag("rolling"))
+                {
+                    animCon.SetTrigger("rolling");
+                }
+            }
+            else
+            {
+                velocity.y += Physics.gravity.y * Time.deltaTime;
+                // カメラの方向から、X-Z平面の単位ベクトルを取得
+                Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+
+                // 方向キーの入力値とカメラの向きから、移動方向を決定
+                Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+
+                // キャラクターの向きを進行方向に
+                if (moveForward != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(moveForward);
+                }
+            }
+            //}
+
+            // ▼▼▼ジャンプ処理▼▼▼
+            //　ジャンプキー（デフォルトではSpace）を押したらY軸方向の速度にジャンプ力を足す
+            if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("joystick A"))
+                && !stateInfo.IsName("Jump"))
+            {
+                animCon.SetBool("Jump", true);
+            }
 
             if (Input.GetAxisRaw("L R Trigger") < 0)
             {
@@ -164,7 +170,7 @@ public class PlayerController : MonoBehaviour
                 animCon.SetBool("Attack", true);
                 charge = true;
             }
-            if((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
+            if ((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
                 && !Input.GetButton("L1")))
             {
                 charge = false;
@@ -177,7 +183,7 @@ public class PlayerController : MonoBehaviour
             }
             if (charge)
             {
-                if((Input.GetButton("joystick X")) && (!Input.GetButton("L1")))
+                if ((Input.GetButton("joystick X")) && (!Input.GetButton("L1")))
                 {
                     count++;
                 }
@@ -214,7 +220,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "DashCollider")
         {
             jungle = true;
-            moveSpeed = boost*2;
+            moveSpeed = boost * 2;
         }
     }
 
