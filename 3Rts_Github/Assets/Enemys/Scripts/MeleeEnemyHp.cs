@@ -8,7 +8,7 @@ public class MeleeEnemyHp : MonoBehaviour
     public float up = 0.1f;
     float uiTime;
     public bool hpUi;
-    GameObject player;
+    public　GameObject player;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
     // Start is called before the first frame update
@@ -41,7 +41,12 @@ public class MeleeEnemyHp : MonoBehaviour
         {
             if(player.GetComponent<TurretSet>().maxMilitary > player.GetComponent<TurretSet>().militaryforce + up)
             player.GetComponent<TurretSet>().militaryforce += up;
-            Destroy(this.gameObject);
+
+            // 消える時にパーティクルを残す
+            GameObject meshes = transform.Find("107311_mws_npc/107300_mws_npc_mo/107300_mws_npc_mo_0").gameObject;
+            SkinnedMeshRenderer skinnedMeshRenderer = meshes.GetComponent<SkinnedMeshRenderer>();
+            skinnedMeshRenderer.material.color = new Color(0, 0, 0, 0.0f);
+            StartCoroutine("Death");
         }
     }
 
@@ -65,9 +70,15 @@ public class MeleeEnemyHp : MonoBehaviour
             Hp -= 25;
             hpUi = true;
             particle_arrow.Play();
-        }
-        
+        }              
+    }
 
-        
+    private IEnumerator Death()
+    {
+        particle_sword.Play();
+        yield return new WaitForSeconds(0.1f);
+        particle_sword.Stop();
+        yield return new WaitForSeconds(0.3f);
+        Destroy(this.gameObject);
     }
 }

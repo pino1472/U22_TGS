@@ -180,6 +180,7 @@ MonoBehaviour:
   Hp: 50
   up: 0.1
   hpUi: 0
+  player: {fileID: 7699838278299204837, guid: 4047fd6c547e9d845aeb782dcc154a83, type: 3}
   particle_arrow: {fileID: 6024158974217236653}
   particle_sword: {fileID: 6024158974217236653}
 --- !u!195 &8489246795312819808
@@ -231,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742eb0c3092f28b40923ffca7b652cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_Animator: {fileID: 8489246794460499545}
   plyerDistance: 10
   stopDistance: 5
   tagName: Tower_rigth

@@ -39,12 +39,7 @@ namespace Game.Enemy
             {
                 //目的地をタワーに
                 targget = middleTower.transform;
-            }
-            /*if (msterTower)
-            {
-                //目的地をタワーに
-                targget = msterTower.transform;
-            }*/
+            }           
         }
 
         void Update()

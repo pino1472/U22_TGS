@@ -294,6 +294,7 @@ MonoBehaviour:
   Hp: 50
   up: 0.1
   hpUi: 0
+  player: {fileID: 7699838278299204837, guid: 4047fd6c547e9d845aeb782dcc154a83, type: 3}
   particle_arrow: {fileID: 4139730146971681231}
   particle_sword: {fileID: 4139730146971681231}
 --- !u!114 &2366572667921766921

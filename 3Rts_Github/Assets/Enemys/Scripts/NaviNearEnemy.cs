@@ -40,12 +40,7 @@ namespace Game.Enemy
             {
                 //目的地をタワーに
                 targget = middleTower.transform;
-            }
-            /*if (msterTower)
-            {
-                //目的地をタワーに
-                targget = msterTower.transform;
-            }*/
+            }            
         }
 
         void Update()
@@ -97,10 +92,8 @@ namespace Game.Enemy
                         targget = player.transform;
                         // 停止距離になったら
                         if (agentDistance <= stopDistance)
-                        {
-                            
+                        {                            
                             Attack();
-
                         }
                         else
                         {
