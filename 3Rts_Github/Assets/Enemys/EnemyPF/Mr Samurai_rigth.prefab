@@ -1384,7 +1384,7 @@ GameObject:
   - component: {fileID: 1617316845372056815}
   - component: {fileID: 3696765418077352901}
   - component: {fileID: 4475662614800181014}
-  - component: {fileID: 1537473267196688918}
+  - component: {fileID: 7344726638023110595}
   m_Layer: 9
   m_Name: Mr Samurai_rigth
   m_TagString: Enemy
@@ -1481,9 +1481,10 @@ MonoBehaviour:
   Hp: 50
   up: 0.1
   hpUi: 0
+  player: {fileID: 7699838278299204837, guid: 4047fd6c547e9d845aeb782dcc154a83, type: 3}
   particle_arrow: {fileID: 3137216113187079461}
   particle_sword: {fileID: 3137216113187079461}
---- !u!114 &1537473267196688918
+--- !u!114 &7344726638023110595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1492,12 +1493,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3755983017359040241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539e22a7b9409524cb08c6eb857bbdf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 070c4cd499e5cac4d8e3e83508e21331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_Animator: {fileID: 3840315746363653273}
-  plyerDistance: 10
+  plyerDistance: 5
   stopDistance: 1.6
+  tagName: Tower_rigth
 --- !u!1 &3755994596439264143
 GameObject:
   m_ObjectHideFlags: 0

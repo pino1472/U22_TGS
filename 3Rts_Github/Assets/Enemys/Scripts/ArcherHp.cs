@@ -8,19 +8,10 @@ public class ArcherHp : MonoBehaviour
     public float up = 0.1f;
     float uiTime;
     public bool hpUi;
-    GameObject player;
+    public GameObject player;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
-    // Start is called before the first frame update
-    void Start()
-    {
-        hpUi = false;
-        player = GameObject.FindWithTag("Player");
-        particle_arrow.Stop();
-        particle_sword.Stop();
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (hpUi)
@@ -39,16 +30,18 @@ public class ArcherHp : MonoBehaviour
         if (Hp <= 0)
         {
             player.GetComponent<TurretSet>().militaryforce += up;
-            Destroy(this.gameObject);
+            int k = 3;//配列の要素数
+            GameObject[] meshes = new GameObject[k];
+            for (int i = 1; 4 > i; i++)
+            {
+                meshes[i-1] = transform.GetChild(i).gameObject;
+                SkinnedMeshRenderer skinnedMeshRenderer = meshes[i - 1].GetComponent<SkinnedMeshRenderer>();
+                skinnedMeshRenderer.material.color = new Color(0, 0, 0, 0.0f);
+            }
+            //particle_sword.Play();
+            StartCoroutine("Death");            
         }
-    }
-
-    public void OnCollisionEnter(Collision collision)//矢が刺さるように
-    {
-        
-
-
-    }
+    }    
 
     public void OnTriggerEnter(Collider other)
     {
@@ -72,4 +65,13 @@ public class ArcherHp : MonoBehaviour
         }
     }
 
-}
+    private IEnumerator Death()
+    {
+        particle_sword.Play();
+        yield return null;
+        particle_sword.Stop();
+        yield return new WaitForSeconds(0.3f);
+        Destroy(this.gameObject);
+    }
+
+} 

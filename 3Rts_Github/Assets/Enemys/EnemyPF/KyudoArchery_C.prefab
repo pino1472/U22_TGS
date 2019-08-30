@@ -2310,6 +2310,7 @@ MonoBehaviour:
   Hp: 50
   up: 0.1
   hpUi: 0
+  player: {fileID: 7699838278299204837, guid: 4047fd6c547e9d845aeb782dcc154a83, type: 3}
   particle_arrow: {fileID: 8318001272108378248}
   particle_sword: {fileID: 8318001272108378248}
 --- !u!136 &912671944147866526
@@ -2353,9 +2354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742eb0c3092f28b40923ffca7b652cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_Animator: {fileID: 9165512787768468356}
   plyerDistance: 10
   stopDistance: 5
+  tagName: Tower_center
 --- !u!1 &9165512787775721952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,6 +3168,11 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 9165512787775688188}
+    - target: {fileID: 1597081249307416170, guid: 1cc0d7f293903d644a1152d42384c6e0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cc0d7f293903d644a1152d42384c6e0, type: 3}
 --- !u!4 &9165512787775688132 stripped
