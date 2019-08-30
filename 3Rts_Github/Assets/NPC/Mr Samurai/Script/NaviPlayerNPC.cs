@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 
-public class NaviPlayerNpc : MonoBehaviour
+public class NaviPlayerNPC : MonoBehaviour
 {
     NavMeshAgent agent;
     Animator p_Animator;

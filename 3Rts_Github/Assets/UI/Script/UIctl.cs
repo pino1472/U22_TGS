@@ -26,8 +26,7 @@ public class UIctl : MonoBehaviour
 =======
             Item_UI[i].GetComponent<Image>().sprite = Item[i];
         }*/
->>>>>>> origin/hiiragi10
-        skillPoint = 0;
+
     }
     // Update is called once per frame
     void Update()
