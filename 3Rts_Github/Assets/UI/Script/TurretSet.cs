@@ -43,7 +43,7 @@ public class TurretSet : MonoBehaviour
         {
             if (Input.GetButton("L1") || Input.GetKey("z"))
             {
-                if ((Input.GetKeyDown("x") || Input.GetButtonDown("joystick X")) && militaryforce > cost)//※3
+                if (/*(Input.GetKeyDown("x") || Input.GetButtonDown("joystick X")) &&*/ militaryforce > cost)//※3
                 {
                     StartCoroutine("Turret");//※3
                     militaryforce -= cost;
