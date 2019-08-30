@@ -25,44 +25,27 @@ public class NpcStatus : MonoBehaviour
             skinnedMeshRenderer.material.color = new Color(0, 0, 0, 0.0f);
             StartCoroutine("Death");
         }
-        else
-        {
-            damage_Particle.Stop();
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
-    { 
-       
+    {        
         if(other.gameObject.tag  == "Enemy_Sword")
         {
             Hp -= 30;
             damage_Particle.Play();
-        }
-        else
-        {
-            damage_Particle.Stop();
-        }
-
+        }      
         if (other.gameObject.tag == "Enemy_Arrow")
         {
             Hp -= 10;;
             damage_Particle.Play();
         }
-        else
-        {
-            damage_Particle.Stop();
-        }
-
         if (other.gameObject.tag  == "PtBullet")
         {
             Hp -= 50;
             damage_Particle.Play();
         }
-        else
-        {
-            damage_Particle.Stop();
-        }
+       
     }
     private IEnumerator Death()
     {
