@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -19,8 +20,14 @@ public class PauseManager : MonoBehaviour
 
         }
 
+        if (Input.GetButton("joystick A") && Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+
         if (Input.GetButton("Back") && Time.timeScale == 0)
         {
+            SceneManager.LoadScene("Startmeny");
             Time.timeScale = 1;
         }
 

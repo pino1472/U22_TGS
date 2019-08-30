@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6798002415384050622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396146014781359555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0932e10978d5e7947a6c5383ab3db37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6798002413525233370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,12 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -112,18 +124,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6798002415384050622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396146014781359555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0932e10978d5e7947a6c5383ab3db37d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6798002413946232975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,16 +131,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6798002414696624799}
     m_Modifications:
-    - target: {fileID: 5900205503876799834, guid: d54262b1a57935b468c953490b412d47,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas_mr_R (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900205503876799834, guid: d54262b1a57935b468c953490b412d47,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6568570004419749196, guid: d54262b1a57935b468c953490b412d47,
         type: 3}
       propertyPath: m_Layer
@@ -265,6 +255,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900205503876799834, guid: d54262b1a57935b468c953490b412d47,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas_mr_R (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900205503876799834, guid: d54262b1a57935b468c953490b412d47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7233029131800328976, guid: d54262b1a57935b468c953490b412d47,
         type: 3}

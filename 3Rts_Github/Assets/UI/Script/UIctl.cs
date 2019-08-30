@@ -20,7 +20,7 @@ public class UIctl : MonoBehaviour
         Back.SetActive(false);
         for (int i = 0; i < Item_UI.Length; i++)
         {
-            Item_UI[i].GetComponent<Image>().sprite = Item[i];
+            Item_UI[i].GetComponent<Image>().sprite = Item[i];//添え字を振っていく
         }
         skillPoint = 0;
     }
@@ -34,13 +34,13 @@ public class UIctl : MonoBehaviour
             if (Input.GetButtonDown("joystick Y"))
             {
                 e--;
-                if (e < 0) e += Item.Length;
+                if (e < 0) e += Item.Length;//0まできたら最初に戻る
                 imagechange();
             }
             if (Input.GetButtonDown("joystick X"))
             {
                 e++;
-                if (e >= Item.Length) e -= Item.Length;
+                if (e >= Item.Length) e -= Item.Length;//要素数を超えないようにする→最初に戻る？
                 imagechange();
             }
             if (skillPoint > 0)
