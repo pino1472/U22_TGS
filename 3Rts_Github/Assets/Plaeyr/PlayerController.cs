@@ -114,11 +114,12 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(moveForward);
                 }
-                if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
+                /*if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetButtonDown("joystick B"))
                 && !stateInfo.IsTag("rolling"))
                 {
                     animCon.SetTrigger("rolling");
                 }
+                */
             }
             else
             {
@@ -168,8 +169,9 @@ public class PlayerController : MonoBehaviour
                 (!animCon.IsInTransition(0)))
             {
                 animCon.SetBool("Attack", true);
-                charge = true;
+                //charge = true;
             }
+            /*
             if ((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
                 && !Input.GetButton("L1")))
             {
@@ -196,6 +198,7 @@ public class PlayerController : MonoBehaviour
             {
                 particle.Stop();
             }
+            */
         }
         if (equip.weapons[equip.equipment].name == "Elven Long Bow")
         {
