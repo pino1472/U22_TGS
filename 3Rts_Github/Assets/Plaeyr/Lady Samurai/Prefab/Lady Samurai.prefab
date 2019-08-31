@@ -2825,7 +2825,6 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 2102221530684511852, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: playOnAwake
@@ -2835,26 +2834,10 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
-=======
-    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: m_Name
-      value: hit-red-2 1
->>>>>>> dev
       objectReference: {fileID: 0}
     - target: {fileID: 2196309860498509126, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102221530684511852, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102352410175134404, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
