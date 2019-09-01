@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             }
             //if (animCon.GetBool("Run") == true)
             //{
-            if (!stateInfo.IsTag("Attack") && !stateInfo.IsName("act"))
+            if (stateInfo.IsName("Run")|| animCon.IsInTransition(0))
             {
                 velocity.y += Physics.gravity.y * Time.deltaTime;
                 // カメラの方向から、X-Z平面の単位ベクトルを取得
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
                 }
                 */
             }
-            else
+            else if(stateInfo.IsTag("Attack") && !stateInfo.IsName("act"))
             {
                 velocity.y += Physics.gravity.y * Time.deltaTime;
                 // カメラの方向から、X-Z平面の単位ベクトルを取得

@@ -598,7 +598,8 @@ GameObject:
   - component: {fileID: 1662551570606921458}
   - component: {fileID: 1025234926919744735}
   - component: {fileID: 7483877035335578230}
-  - component: {fileID: 6139830321566252763}
+  - component: {fileID: 6771487816101948705}
+  - component: {fileID: 7488395854957594069}
   m_Layer: 0
   m_Name: Lady Samurai
   m_TagString: Player_NPC
@@ -693,7 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 600
   damage_Particle: {fileID: 5122299689734028671}
---- !u!114 &6139830321566252763
+--- !u!114 &6771487816101948705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,7 +703,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166246725927752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24469e3f6e581524d959344a052ed1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botTower: []
@@ -713,6 +714,102 @@ MonoBehaviour:
   enemySearhDistance: 10
   isBotLine: 0
   isEnemyAttack: 0
+--- !u!82 &7488395854957594069
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166246725927752}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5a5deab5861edd0419397bdc80dacac1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1166321755608322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,11 +2837,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
-    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: m_Name
-      value: hit-red-2 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2297477819146436876, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2824,6 +2916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
+        type: 3}
+      propertyPath: m_Name
+      value: hit-red-2 1
       objectReference: {fileID: 0}
     - target: {fileID: 2102221530684511852, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}

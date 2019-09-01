@@ -22,7 +22,6 @@ public class SwordCollider : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = true;
         }
-
         else
         {
             GetComponent<BoxCollider>().enabled = false;

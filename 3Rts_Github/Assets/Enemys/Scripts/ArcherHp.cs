@@ -11,6 +11,8 @@ public class ArcherHp : MonoBehaviour
     public GameObject player;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
+
+    public AudioSource audioCrip_damage;
     
     void Update()
     {
@@ -48,12 +50,14 @@ public class ArcherHp : MonoBehaviour
         if (other.gameObject.tag == "NPC_Sword")
         {
             Hp -= 20;
+            audioCrip_damage.Play();
             particle_sword.Play();
         }
         if (other.gameObject.tag == "P_Sword")
         {
             Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
             hpUi = true;
+            audioCrip_damage.Play();
             particle_sword.Play();
         }
 

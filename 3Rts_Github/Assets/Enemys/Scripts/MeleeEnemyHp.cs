@@ -11,6 +11,9 @@ public class MeleeEnemyHp : MonoBehaviour
     public　GameObject player;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
+
+    public AudioSource audioCrip_damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +59,14 @@ public class MeleeEnemyHp : MonoBehaviour
         if (other.gameObject.tag == "NPC_Sword")
         {
             Hp -= 20;
+            audioCrip_damage.Play();
             particle_sword.Play();
         }
         if (other.gameObject.tag == "P_Sword")
         {             
             Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
             hpUi = true;
+            audioCrip_damage.Play();
             particle_sword.Play();
         }
         
