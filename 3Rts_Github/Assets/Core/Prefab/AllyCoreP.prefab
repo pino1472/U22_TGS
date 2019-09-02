@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllyCoreHP: 100
+  damage_particle: {fileID: 1850297845990556411, guid: f92f3ba1cc9a5f846af0d68200bd9ac6,
+    type: 3}
 --- !u!54 &8445747666551678344
 Rigidbody:
   m_ObjectHideFlags: 0
