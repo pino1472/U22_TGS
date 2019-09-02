@@ -81,7 +81,7 @@ public class MeleeEnemyHp : MonoBehaviour
     private IEnumerator Death()
     {
         particle_sword.Play();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         particle_sword.Stop();
         yield return new WaitForSeconds(0.3f);
         Destroy(this.gameObject);
