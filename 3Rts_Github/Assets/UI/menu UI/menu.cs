@@ -110,11 +110,11 @@ public class menu : MonoBehaviour
             audioSource.PlayOneShot(decisionSound);
             if (gameplay[i].name == "start")
             {
-                SceneManager.LoadScene("Game");
+                FadeManager.Instance.LoadScene("Game",0.5f);
             }
             else if (gameplay[i].name == "practice")
             {
-                SceneManager.LoadScene("Practice");
+                FadeManager.Instance.LoadScene("Practice",0.5f);
             }
             else if (gameplay[i].name == "end")
             {

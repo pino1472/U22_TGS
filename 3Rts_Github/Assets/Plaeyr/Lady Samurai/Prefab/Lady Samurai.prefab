@@ -703,7 +703,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166246725927752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
+  m_Script: {fileID: 11500000, guid: 24469e3f6e581524d959344a052ed1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botTower: []
@@ -711,7 +711,7 @@ MonoBehaviour:
   topTower: []
   target: {fileID: 0}
   stopDistance: 1.8
-  enemySearhDistance: 5
+  enemySearhDistance: 10
   isBotLine: 0
   isEnemyAttack: 0
 --- !u!82 &7488395854957594069

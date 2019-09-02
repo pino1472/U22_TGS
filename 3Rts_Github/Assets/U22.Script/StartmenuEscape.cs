@@ -19,8 +19,8 @@ public class StartmenuEscape : MonoBehaviour
 
     void GotoStartmenu()
     {
-        //FadeManager.Instance.LoadScene("Startmenu", 0.5f);
-        SceneManager.LoadScene("Startmenu");
+        FadeManager.Instance.LoadScene("Startmenu", 0.5f);
+        //SceneManager.LoadScene("Startmenu");
 
     }
 }
