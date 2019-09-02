@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private float MoveSpeedSave;
 
+    bool Attacktrigger;
+
     ChangeEquip equip;
     public ParticleSystem particle;
 
@@ -86,18 +88,21 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
             }
-            else if (stateInfo.IsTag("Attack") || stateInfo.IsName("act"))
-            {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
-                rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
-            }
             else
             {
-                animCon.SetBool("Run", true);  //  Runモーションする
+                //if (stateInfo.IsTag("Attack") || stateInfo.IsName("act"))
+                //{
+                //    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                //    rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
+                //}
+                //else
+                {
+                    animCon.SetBool("Run", true);  //  Runモーションする
+                }
             }
             //if (animCon.GetBool("Run") == true)
             //{
-            if (stateInfo.IsName("Run")|| animCon.IsInTransition(0))
+            if (stateInfo.IsName("Run") || animCon.IsInTransition(0))
             {
                 velocity.y += Physics.gravity.y * Time.deltaTime;
                 // カメラの方向から、X-Z平面の単位ベクトルを取得
@@ -121,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 }
                 */
             }
-            else if(stateInfo.IsTag("Attack") && !stateInfo.IsName("act"))
+            else if (stateInfo.IsTag("Attack") || stateInfo.IsName("act"))
             {
                 velocity.y += Physics.gravity.y * Time.deltaTime;
                 // カメラの方向から、X-Z平面の単位ベクトルを取得
@@ -136,6 +141,8 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(moveForward);
                 }
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                rb.angularVelocity = new Vector3(0, rb.velocity.y, 0);
             }
             //}
 
@@ -170,6 +177,22 @@ public class PlayerController : MonoBehaviour
             {
                 animCon.SetBool("Attack", true);
                 //charge = true;
+            }
+            if (stateInfo.IsTag("Attack"))
+            {
+                if (Input.GetButtonDown("joystick X") || (Input.GetMouseButtonDown(0)))
+                {
+                    Attacktrigger = true;
+                    animCon.SetBool("Attack", true);
+                }
+                else if (!Attacktrigger)
+                {
+                    animCon.SetBool("Attack", false);
+                }
+            }
+            if (animCon.IsInTransition(0))
+            {
+                Attacktrigger = false;
             }
             /*
             if ((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
