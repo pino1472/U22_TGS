@@ -45,7 +45,12 @@ public class NpcStatus : MonoBehaviour
             Hp -= 50;
             damage_Particle.Play();
         }
-       
+        if (other.gameObject.tag == "EnemyCoreTowerBullet")
+        {
+            Hp -= 600;
+            damage_Particle.Play();
+        }
+
     }
     private IEnumerator Death()
     {

@@ -88,7 +88,7 @@ public class PracticeTextControll : MonoBehaviour
 
         }
 
-        if (Input.GetAxisRaw("D Pad V") == -1)
+        if (Input.GetButton("joystick B"))
         {
             Destroy(this.gameObject);
         }
