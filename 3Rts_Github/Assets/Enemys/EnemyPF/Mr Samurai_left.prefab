@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hp: 50
-  up: 0.1
+  up: 0.001
   hpUi: 0
   player: {fileID: 7699838278299204837, guid: 4047fd6c547e9d845aeb782dcc154a83, type: 3}
   particle_arrow: {fileID: 4139730146971681231}
