@@ -54,5 +54,11 @@ public class PlayerStatus : MonoBehaviour
             //ダメージ後にパーティクル発生
             DamegeTower.Play();
         }
+        if (other.gameObject.tag == "EnemyCoreTowerBullet")
+        {
+            PHp -= 1000;
+            //ダメージ後にパーティクル発生
+            DamegeTower.Play();
+        }
     }
 }
