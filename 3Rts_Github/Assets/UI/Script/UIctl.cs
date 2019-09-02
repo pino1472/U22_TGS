@@ -12,7 +12,7 @@ public class UIctl : MonoBehaviour
     GameObject Back;*/
     [SerializeField] GameObject Player;
     [SerializeField]TextMeshProUGUI skillPointText;
-    public int skillPoint;
+    public int skillPoint,Point;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +47,12 @@ public class UIctl : MonoBehaviour
                 if (e >= Item.Length) e -= Item.Length;//要素数を超えないようにする→最初に戻る？
                 imagechange();
             }*/
-           if (skillPoint > 0)
+           if (skillPoint > Point)
            {
             Player.GetComponent<PlayerStatus>().PHp += 500;
             Player.GetComponent<TurretSet>().maxMilitary += 1;
             Player.GetComponent<PlayerStatus>().AttackPower += 50;
+            Point += 1;
             //skillPoint -= 1;
             /*if (Input.GetButtonDown("R1"))
             {
