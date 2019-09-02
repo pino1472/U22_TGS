@@ -31,7 +31,7 @@ public class ArcherHp : MonoBehaviour
         }
         if (Hp <= 0)
         {
-            player.GetComponent<TurretSet>().militaryforce += up;
+           
             int k = 3;//配列の要素数
             GameObject[] meshes = new GameObject[k];
             for (int i = 1; 4 > i; i++)
@@ -75,6 +75,8 @@ public class ArcherHp : MonoBehaviour
         yield return null;
         particle_sword.Stop();
         yield return new WaitForSeconds(0.3f);
+        if (player.GetComponent<TurretSet>().maxMilitary > player.GetComponent<TurretSet>().militaryforce + up)
+            player.GetComponent<TurretSet>().militaryforce += up;
         Destroy(this.gameObject);
     }
 

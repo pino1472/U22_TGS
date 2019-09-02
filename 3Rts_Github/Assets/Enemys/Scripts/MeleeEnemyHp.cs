@@ -42,8 +42,7 @@ public class MeleeEnemyHp : MonoBehaviour
         }
         if (Hp <= 0)
         {
-            if(player.GetComponent<TurretSet>().maxMilitary > player.GetComponent<TurretSet>().militaryforce + up)
-            player.GetComponent<TurretSet>().militaryforce += up;
+            
 
             // 消える時にパーティクルを残す
             GameObject meshes = transform.Find("107311_mws_npc/107300_mws_npc_mo/107300_mws_npc_mo_0").gameObject;
@@ -84,6 +83,8 @@ public class MeleeEnemyHp : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         particle_sword.Stop();
         yield return new WaitForSeconds(0.3f);
+        if (player.GetComponent<TurretSet>().maxMilitary > player.GetComponent<TurretSet>().militaryforce + up)
+            player.GetComponent<TurretSet>().militaryforce += up;
         Destroy(this.gameObject);
     }
 }

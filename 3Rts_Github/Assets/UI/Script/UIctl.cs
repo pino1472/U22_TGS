@@ -31,7 +31,7 @@ public class UIctl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- //       skillPointText.text = skillPoint.ToString();
+        skillPointText.text = skillPoint.ToString();
         /*if (Input.GetAxisRaw("L R Trigger") < 0 || Input.GetKey("z"))
         {
             Back.SetActive(true);
