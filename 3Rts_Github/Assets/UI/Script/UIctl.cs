@@ -52,7 +52,7 @@ public class UIctl : MonoBehaviour
             Player.GetComponent<PlayerStatus>().PHp += 500;
             Player.GetComponent<TurretSet>().maxMilitary += 1;
             Player.GetComponent<PlayerStatus>().AttackPower += 50;
-            skillPoint -= 1;
+            //skillPoint -= 1;
             /*if (Input.GetButtonDown("R1"))
             {
                 if (Item_UI[0].GetComponent<Image>().sprite.name == "体")

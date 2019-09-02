@@ -11,9 +11,14 @@ public class menu : MonoBehaviour
     [SerializeField ]int i;
     [SerializeField]Animator ani;
     [SerializeField] float time,cool;
+    [SerializeField]AudioClip choiceSound;
+    [SerializeField] AudioClip decisionSound;
+
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         i = 0;
         for (int k = 0; gameplay.Length > k; k++)
         {
@@ -36,13 +41,15 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float var = Input.GetAxisRaw("L Stick V");
+        float var = Input.GetAxisRaw("D Pad V"/*"L Stick V"*/);
         //float har = Input.GetAxis("L Stick H");
         time += Time.deltaTime; 
         if(time > cool)
         {
+            
             if (/*(har!=0)||*/(var < 0))
             {
+                audioSource.PlayOneShot(choiceSound);
                 if (i == gameplay.Length - 1)
                 {
                     i = 0;
@@ -70,6 +77,7 @@ public class menu : MonoBehaviour
             }
             if (/*(har!=0)||*/(var > 0))
             {
+                audioSource.PlayOneShot(choiceSound);
                 if (i == 0)
                 {
                     i = gameplay.Length - 1;
@@ -99,6 +107,7 @@ public class menu : MonoBehaviour
         
         if (Input.GetKeyDown("joystick button 0"))
         {
+            audioSource.PlayOneShot(decisionSound);
             if (gameplay[i].name == "start")
             {
                 SceneManager.LoadScene("Game");
