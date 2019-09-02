@@ -27,7 +27,7 @@ public class PauseManager : MonoBehaviour
 
         if (Input.GetButton("Back") && Time.timeScale == 0)
         {
-            SceneManager.LoadScene("Startmeny");
+            FadeManager.Instance.LoadScene("Startmeny",0.5f);
             Time.timeScale = 1;
         }
 

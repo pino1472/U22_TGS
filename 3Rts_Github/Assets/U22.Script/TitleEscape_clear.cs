@@ -19,6 +19,6 @@ public class TitleEscape_clear : MonoBehaviour
     void GotoTitle()
     {
         //FadeManager.Instance.LoadScene("Title", 0.5f);
-        SceneManager.LoadScene("Startmeny");
+        FadeManager.Instance.LoadScene("Startmeny",0.5f);
     }
 }

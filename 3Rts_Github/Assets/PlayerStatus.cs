@@ -23,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (PHp <= 0)
         {
-            SceneManager.LoadScene("Over");
+            FadeManager.Instance.LoadScene("Over",0.5f);
         }
     }
     // Update is called once per frame

@@ -22,8 +22,8 @@ public class TitleEscape_over1 : MonoBehaviour
 
     void GotoGame()
     {
-       
-        SceneManager.LoadScene("Game");
+
+        FadeManager.Instance.LoadScene("Game",0.5f);
 
     }
    
