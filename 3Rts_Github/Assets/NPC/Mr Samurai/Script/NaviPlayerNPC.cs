@@ -89,7 +89,7 @@ public class NaviPlayerNPC : MonoBehaviour
             }
             else if (isTopLine)
             {
-                if (topTower[0].name == "RightPoint")
+                if (topTower[0].name == "RighPoint")
                 {
                     //一時敵に変数を移す変数
                     Transform ecape = topTower[0];
@@ -162,7 +162,7 @@ public class NaviPlayerNPC : MonoBehaviour
             }
             if (isTopLine)
             {
-                ChaseTower("Tower_rigth", "RightPoint", topTower);
+                ChaseTower("Tower_rigth", "RighPoint", topTower);
 
             }
             if (!isBotLine && !isTopLine)
