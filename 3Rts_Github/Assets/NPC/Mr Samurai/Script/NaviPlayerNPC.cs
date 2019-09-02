@@ -133,8 +133,11 @@ public class NaviPlayerNPC : MonoBehaviour
 
     void Update()
     {
-        //エネミーコアとの距離
-        coreDistance = Vector3.Distance(this.agent.transform.position, core.transform.position);
+        if (core)
+        {
+            //エネミーコアとの距離
+            coreDistance = Vector3.Distance(this.agent.transform.position, core.transform.position);
+        }
         
         //最も近かった、"Enemy"タグのオブジェクトを取得
         nearEnemy = serchTag(gameObject, "Enemy");

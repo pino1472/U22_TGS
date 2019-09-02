@@ -18,7 +18,7 @@ public class StartManager : MonoBehaviour
     void GotoGame()
     {
         //FadeManager.Instance.LoadScene("Game", 0.5f);
-        SceneManager.LoadScene("Game");
+        FadeManager.Instance.LoadScene("Game",0.5f);
 
     }
 }
