@@ -17,7 +17,7 @@ public class PracticeStartFrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("joystick B"))
+        if (Input.GetButton("joystick B")&&(Time.timeScale == 1))
         {
             startFlag = true;
             Gen1.SetActive(true);
