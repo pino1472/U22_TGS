@@ -5,18 +5,35 @@ using UnityEngine;
 public class NpcStatus : MonoBehaviour
 {
     public int Hp;
+    //レディHPの表示
+    public bool ladyHpUI;
+    float ladyUITime;
 
     public ParticleSystem damage_Particle;
     // Start is called before the first frame update
     void Start()
     {
+        ladyHpUI = false;
+
         damage_Particle.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (ladyHpUI)
+        {
+            ladyUITime += Time.deltaTime;
+        }
+        else
+        {
+            ladyUITime = 0;
+        }
+
+        if (ladyUITime >= 1f)
+        {
+            ladyHpUI = false;
+        }
         if (Hp <= 0)
         {
             // 消える時にパーティクルを残す
@@ -32,21 +49,29 @@ public class NpcStatus : MonoBehaviour
     {        
         if(other.gameObject.tag  == "Enemy_Sword")
         {
+            ladyUITime = 0;
+            ladyHpUI = true;
             Hp -= 30;
             damage_Particle.Play();
         }      
         if (other.gameObject.tag == "Enemy_Arrow")
         {
+            ladyUITime = 0;
+            ladyHpUI = true;
             Hp -= 10;;
             damage_Particle.Play();
         }
         if (other.gameObject.tag  == "PtBullet")
         {
+            ladyUITime = 0;
+            ladyHpUI = true;
             Hp -= 50;
             damage_Particle.Play();
         }
         if (other.gameObject.tag == "EnemyCoreTowerBullet")
         {
+            ladyUITime = 0;
+            ladyHpUI = true;
             Hp -= 600;
             damage_Particle.Play();
         }
