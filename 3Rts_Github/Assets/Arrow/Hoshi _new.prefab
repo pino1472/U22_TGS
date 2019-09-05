@@ -5970,6 +5970,7 @@ GameObject:
   - component: {fileID: 7700921231808204317}
   - component: {fileID: 2717507422468885592}
   - component: {fileID: 2717507422468885537}
+  - component: {fileID: 3128869486848829150}
   m_Layer: 11
   m_Name: Hoshi _new
   m_TagString: Player
@@ -6132,6 +6133,19 @@ MonoBehaviour:
   muzzle: {fileID: 2041758548}
   bullet: {fileID: 3372425543057475714, guid: 8a4dfeb4d8232844ab2f1c6131f74318, type: 3}
   shootPower: 1000
+--- !u!114 &3128869486848829150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699838278299204837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c125608dbc735747ae162d01b0b56c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sword: {fileID: 5442188541673161942}
 --- !u!1 &7699841906210535541
 GameObject:
   m_ObjectHideFlags: 0
@@ -8695,6 +8709,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6388977913829934523, guid: 8724503f997380e4eba36b5b2f00e74c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5019200136051746152, guid: 8724503f997380e4eba36b5b2f00e74c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8772,6 +8791,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8724503f997380e4eba36b5b2f00e74c, type: 3}
+--- !u!1 &5442188541673161942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6388977913829934523, guid: 8724503f997380e4eba36b5b2f00e74c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1381686078507254125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6236214193745552389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5019200136051746152, guid: 8724503f997380e4eba36b5b2f00e74c,

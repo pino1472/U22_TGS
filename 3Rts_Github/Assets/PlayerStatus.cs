@@ -25,9 +25,7 @@ public class PlayerStatus : MonoBehaviour
     {
         if (PHp <= 0)
         {
-            Animator animator = gameObject.GetComponent<Animator>();
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            animator.SetBool("Die", true);            
+            GetComponent<Animator>().Play("Die");
         }
     }
     // Update is called once per frame
