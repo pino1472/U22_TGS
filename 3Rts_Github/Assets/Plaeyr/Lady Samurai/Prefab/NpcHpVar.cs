@@ -24,7 +24,7 @@ public class NpcHpVar : MonoBehaviour
 
         Vector3 targetPos = Camera.main.transform.position;
         // ターゲットのY座標を自分と同じにすることで2次元に制限する。
-        targetPos.y = 0;
+        targetPos.y = this.transform.position.y;
         transform.LookAt(targetPos);
 
         if (pcr == true || isMinion == true)
