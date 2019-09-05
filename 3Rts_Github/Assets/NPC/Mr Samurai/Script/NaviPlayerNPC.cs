@@ -22,7 +22,7 @@ public class NaviPlayerNPC : MonoBehaviour
     private float agentDistance;// プレイヤーのNPC、敵間の距離
     private float coreDistance;// tower、PlayerNPC間の距離
     private float distance; //top側のタワーとの距離
-    [SerializeField] float stopDistance = 5f;// 停止距離
+    [SerializeField] float stopDistance = 1.8f;// 停止距離
     [SerializeField]float enemySearhDistance = 10f; //エネミーを感知する距離
     //出現時のラインの判定
     [SerializeField] bool isBotLine = false;
