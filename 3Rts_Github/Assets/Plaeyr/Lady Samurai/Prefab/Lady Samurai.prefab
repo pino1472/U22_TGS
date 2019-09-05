@@ -705,7 +705,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166246725927752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24469e3f6e581524d959344a052ed1f7, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botTower: []
@@ -2776,6 +2776,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
+    - target: {fileID: 2821598328632354273, guid: fc21245a488a14d41a4149a752cd8479,
+        type: 3}
+      propertyPath: m_Name
+      value: MinionIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 8002537177885546126, guid: fc21245a488a14d41a4149a752cd8479,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2846,11 +2851,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 2821598328632354273, guid: fc21245a488a14d41a4149a752cd8479,
-        type: 3}
-      propertyPath: m_Name
-      value: MinionIcon
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc21245a488a14d41a4149a752cd8479, type: 3}
 --- !u!4 &7088042642892314470 stripped
@@ -2866,6 +2866,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
+    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
+        type: 3}
+      propertyPath: m_Name
+      value: hit-red-2 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2297477819146436876, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2946,11 +2951,6 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: m_Name
-      value: hit-red-2 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2102221530684511852, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: playOnAwake
@@ -2988,6 +2988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
+    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas_lady
+      objectReference: {fileID: 0}
     - target: {fileID: 6001118218191938740, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3092,11 +3097,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas_lady
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6419328243800286985, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8, type: 3}
