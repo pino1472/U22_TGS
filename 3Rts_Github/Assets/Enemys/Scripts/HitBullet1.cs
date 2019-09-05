@@ -17,7 +17,7 @@ namespace Game.Enemy
            if (collider.gameObject.tag == "Enemy")
            { 
                 // 弾が消える
-                Destroy(gameObject);
+                Destroy(gameObject);                
            }
         }
     }

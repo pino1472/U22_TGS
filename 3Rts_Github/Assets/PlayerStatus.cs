@@ -11,19 +11,23 @@ public class PlayerStatus : MonoBehaviour
     public ParticleSystem DamegeSword;
     public ParticleSystem DamegeTower;
 
+
     // Start is called before the first frame update
     void Start()
     {
         DamegeArrow.Stop();//最初は停止
         DamegeSword.Stop();
         DamegeTower.Stop();
+
     }
 
     private void Update()
     {
         if (PHp <= 0)
         {
-            FadeManager.Instance.LoadScene("Over",0.5f);
+            Animator animator = gameObject.GetComponent<Animator>();
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            animator.SetBool("Die", true);            
         }
     }
     // Update is called once per frame
@@ -36,7 +40,7 @@ public class PlayerStatus : MonoBehaviour
     //        DamegeArrow.Play();
     //    }
 
-        
+
     //}
 
     public void OnTriggerEnter(Collider other)
@@ -48,7 +52,7 @@ public class PlayerStatus : MonoBehaviour
             DamegeSword.Play();
         }
 
-        if(other.gameObject.tag == "Enemy_Arrow")
+        if (other.gameObject.tag == "Enemy_Arrow")
         {
             PHp -= 50;
             DamegeArrow.Play();
@@ -66,5 +70,10 @@ public class PlayerStatus : MonoBehaviour
             //ダメージ後にパーティクル発生
             DamegeTower.Play();
         }
+    }
+
+    void Die()
+    {
+        FadeManager.Instance.LoadScene("Over", 0.5f);
     }
 }

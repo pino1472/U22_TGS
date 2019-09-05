@@ -37,7 +37,7 @@ public class NpcStatus : MonoBehaviour
         }      
         if (other.gameObject.tag == "Enemy_Arrow")
         {
-            Hp -= 10;;
+            Hp -= 20;
             damage_Particle.Play();
         }
         if (other.gameObject.tag  == "PtBullet")
