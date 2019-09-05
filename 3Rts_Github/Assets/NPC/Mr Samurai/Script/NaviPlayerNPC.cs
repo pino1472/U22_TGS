@@ -129,6 +129,11 @@ public class NaviPlayerNPC : MonoBehaviour
             }
             p_Animator.SetBool("IsRun", true);
         }
+        else
+        {
+            //ゲームクリア後にNavMeshAgentを止める
+            agent.GetComponent<NavMeshAgent>().isStopped = true;
+        }
     }
 
     void Update()
