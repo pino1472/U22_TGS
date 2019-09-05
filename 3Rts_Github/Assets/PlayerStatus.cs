@@ -27,17 +27,17 @@ public class PlayerStatus : MonoBehaviour
         }
     }
     // Update is called once per frame
-    public void OnCollisionEnter(Collision collision)
-    { 
-        if (collision.gameObject.tag == "EnemyArrow")
-        {
-            PHp -= 50;
-            //ダメージ後にパーティクル発生
-            DamegeArrow.Play();
-        }
+    //public void OnCollisionEnter(Collision collision)
+    //{ 
+    //    if (collision.gameObject.tag == "EnemyArrow")
+    //    {
+    //        PHp -= 50;
+    //        //ダメージ後にパーティクル発生
+    //        DamegeArrow.Play();
+    //    }
 
         
-    }
+    //}
 
     public void OnTriggerEnter(Collider other)
     {
@@ -46,6 +46,12 @@ public class PlayerStatus : MonoBehaviour
             PHp -= 20;
             //ダメージ後にパーティクル発生
             DamegeSword.Play();
+        }
+
+        if(other.gameObject.tag == "Enemy_Arrow")
+        {
+            PHp -= 50;
+            DamegeArrow.Play();
         }
 
         if (other.gameObject.tag == "PtBullet")

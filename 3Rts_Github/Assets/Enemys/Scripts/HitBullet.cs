@@ -20,18 +20,25 @@ namespace Game.Enemy
             Destroy(gameObject, 2f);
             //Fire.Stop();
         }
-        //private void OnTriggerEnter(Collider collider)
-        //{
+        private void OnTriggerEnter(Collider collider)
+        {
 
-        //    // プレイヤーに当たったら
-        //    if (collider.gameObject.tag == "Player" 
-        //        || collider.gameObject.tag == "Towe"
-        //        || collider.gameObject.tag == "PlayerNpc")
-        //    { 
-        //        // 弾が消える
-        //        Destroy(gameObject);
-        //    }
-        //}
+            // プレイヤーに当たったら
+            if (collider.gameObject.tag == "Player"                
+                || collider.gameObject.tag == "PlayerNpc")
+            {
+                // 弾が消える
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(collision.gameObject.tag == "PlayerNpc")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
-}
+    }
 

@@ -703,14 +703,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166246725927752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ca2cebc99502d4ba9f08003e4c1ac5, type: 3}
+  m_Script: {fileID: 11500000, guid: 24469e3f6e581524d959344a052ed1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   botTower: []
   midTower: []
   topTower: []
   target: {fileID: 0}
-  stopDistance: 5
+  stopDistance: 1.8
   enemySearhDistance: 10
   isBotLine: 0
   isEnemyAttack: 0
@@ -2837,6 +2837,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
+    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
+        type: 3}
+      propertyPath: m_Name
+      value: hit-red-2 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2297477819146436876, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2916,11 +2921,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299456555639796158, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
-        type: 3}
-      propertyPath: m_Name
-      value: hit-red-2 1
       objectReference: {fileID: 0}
     - target: {fileID: 2102221530684511852, guid: 24e0c77ee8e1d10468c9b0da6a72741f,
         type: 3}
