@@ -18,6 +18,12 @@ public class Hpvar : MonoBehaviour
     void Update()
     {
         pcr = player.GetComponent<PlayerController>().HPvar;
+
+        Vector3 targetPos = Camera.main.transform.position;
+        // ターゲットのY座標を自分と同じにすることで2次元に制限する。
+        targetPos.y = this.transform.position.y;
+        transform.LookAt(targetPos);
+
         if (pcr == true)
         {
             transform.GetChild(0).gameObject.SetActive(true);

@@ -19,6 +19,14 @@ public class EnemyCoreHpJoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.parent.parent.parent.name != "EnemyCoreHPUIUp")
+        {
+            Vector3 targetPos = Camera.main.transform.position;
+            // ターゲットのY座標を自分と同じにすることで2次元に制限する。
+            targetPos.y = this.transform.parent.parent.position.y;
+            transform.parent.parent.LookAt(targetPos);
+        }
+
         enemyHpvar.fillAmount = EnemyCoreCtrl.EnemyCoreHp / Maxhp;
     }
 }

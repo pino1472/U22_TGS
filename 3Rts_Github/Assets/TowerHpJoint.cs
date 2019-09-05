@@ -11,7 +11,7 @@ public class TowerHpJoint : MonoBehaviour
     void Start()
     {
         TowerHpBar = GetComponent<Image>();
-       TowerCtrl = transform.parent.parent.parent.GetComponent<TowerCtrl>();
+       TowerCtrl = transform.parent.parent.parent.parent.GetComponent<TowerCtrl>();
         Maxhp = TowerCtrl.Hp;
     }
 

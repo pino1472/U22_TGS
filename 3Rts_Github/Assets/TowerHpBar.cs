@@ -17,6 +17,11 @@ public class TowerHpBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 targetPos = Camera.main.transform.position;
+        // ターゲットのY座標を自分と同じにすることで2次元に制限する。
+        targetPos.y = this.transform.parent.position.y;
+        transform.parent.LookAt(targetPos);
+
         pcr = player.GetComponent<PlayerController>().HPvar;
         if (pcr == true)
         {
