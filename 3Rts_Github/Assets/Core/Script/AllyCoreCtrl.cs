@@ -20,6 +20,11 @@ public class AllyCoreCtrl : MonoBehaviour
         if(AllyCoreHP == 0)
         {
             FadeManager.Instance.LoadScene("Over",0.5f);
+
+            if(SceneManager.GetActiveScene().name == ("Practice"))
+            {
+                FadeManager.Instance.LoadScene("OvertoPractice", 0.5f);
+            }
         }
     }
 
