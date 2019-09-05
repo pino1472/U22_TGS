@@ -17,6 +17,7 @@ public class PracticeTextControll : MonoBehaviour
 
     int iEscape;
     int i;
+    bool textSetFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class PracticeTextControll : MonoBehaviour
     {
 
         StartCoroutine(DpadH());
+
 
     }
 
@@ -88,10 +90,19 @@ public class PracticeTextControll : MonoBehaviour
 
         }
 
-        if (Input.GetButton("joystick B"))
+        if (Input.GetButton("joystick B")&&Time.timeScale != 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            textSetFlag = false;
+            //Destroy(this.gameObject);
+
         }
+
+        /*if(Input.GetButton("joystick B")&&textSetFlag == false)
+        {
+            this.gameObject.SetActive(true);
+            //textSetFlag = true;
+        }*/
     }
 }
 

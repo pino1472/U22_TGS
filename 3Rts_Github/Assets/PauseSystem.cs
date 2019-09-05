@@ -18,13 +18,13 @@ public class PauseSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Start"))
+        if (Input.GetButtonDown("Start"))
         {
-            pauseText.SetActive(true);
+            pauseText.SetActive(!pauseText.activeSelf);
         }
-        if (Input.GetButton("Back"))
-        {
-            pauseText.SetActive(false);
-        }
+        //if (Input.GetButton("joystick B"))
+        //{
+        //    pauseText.SetActive(false);
+        //}
     }
 }
