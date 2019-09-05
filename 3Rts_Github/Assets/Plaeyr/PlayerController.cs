@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             // ▼▼▼ジャンプ処理▼▼▼
             //　ジャンプキー（デフォルトではSpace）を押したらY軸方向の速度にジャンプ力を足す
             if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("joystick A"))
-                && !stateInfo.IsName("Jump"))
+                && !stateInfo.IsName("Jump") && !stateInfo.IsTag("Attack") && !stateInfo.IsName("act"))
             {
                 animCon.SetBool("Jump", true);
             }
@@ -173,26 +173,18 @@ public class PlayerController : MonoBehaviour
             if ((Input.GetMouseButtonDown(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonDown("joystick X"))
                 && !Input.GetButton("L1")) &&
                 (!animCon.GetBool("check")) &&
-                (!animCon.IsInTransition(0)))
+                (!animCon.IsInTransition(0))&&
+                (!stateInfo.IsTag("Attack")))
             {
-                animCon.SetBool("Attack", true);
+                animCon.SetTrigger("Attack");
                 //charge = true;
             }
-            if (stateInfo.IsTag("Attack"))
+            if (stateInfo.IsTag("Attack")&& !stateInfo.IsName("Atk03"))
             {
                 if (Input.GetButtonDown("joystick X") || (Input.GetMouseButtonDown(0)))
                 {
-                    Attacktrigger = true;
-                    animCon.SetBool("Attack", true);
+                    animCon.SetTrigger("Attack");
                 }
-                else if (!Attacktrigger)
-                {
-                    animCon.SetBool("Attack", false);
-                }
-            }
-            if (animCon.IsInTransition(0))
-            {
-                Attacktrigger = false;
             }
             /*
             if ((Input.GetMouseButtonUp(0) && !Input.GetKeyDown("z")) || ((Input.GetButtonUp("joystick X"))
