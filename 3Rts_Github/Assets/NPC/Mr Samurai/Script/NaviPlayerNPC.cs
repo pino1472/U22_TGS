@@ -177,7 +177,7 @@ public class NaviPlayerNPC : MonoBehaviour
             {
                 ChaseTower("Tower_center", "CenterPoint", midTower);
             }
-            if ((topTower.Length == 1) && (botTower.Length == 1))
+            if ((topTower.Length == 1) && (botTower.Length == 1) && core)
             {
                 target = core.transform;
             }            
@@ -239,20 +239,22 @@ public class NaviPlayerNPC : MonoBehaviour
         {
             lane_Tower[0] = core.transform;
         }
-        //serchTag(gameObject, "Tower_left");
-        if (lane_Tower[0].name == pointName)
+        
+        if (lane_Tower[0].name == pointName && core)
         {
             //一時敵に変数を移す変数
             Transform ecape = lane_Tower[0];
             if (lane_Tower.Length == 1)
-            {
-                lane_Tower[0] = core.transform;
+            {                              
+                    lane_Tower[0] = core.transform;
             }
             else
             {
                 lane_Tower[0] = lane_Tower[1];
                 lane_Tower[1] = ecape;
             }
+            
+            
         }       
 
         if (lane_Tower[0])
