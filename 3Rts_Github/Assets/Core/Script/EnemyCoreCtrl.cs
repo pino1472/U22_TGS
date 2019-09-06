@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class EnemyCoreCtrl : MonoBehaviour
 {
     public int EnemyCoreHp;
-
+    public GameObject player;
     public AudioSource coreSound;
     public AudioClip coreSoundAtack;
     public ParticleSystem damegge_particle;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         coreSound = gameObject.GetComponent<AudioSource>();
         //damegge_particle = gameObject.GetComponent<ParticleSystem>();
     }
@@ -24,6 +25,7 @@ public class EnemyCoreCtrl : MonoBehaviour
         {
             Destroy(this.gameObject);
             FadeManager.Instance.LoadScene("Clear",0.5f);
+            //Debug.Log(player.GetComponent<PlayerStatus>().AttackPower + "敵核");
         }
     }
 
@@ -31,7 +33,7 @@ public class EnemyCoreCtrl : MonoBehaviour
     {
         if (other.gameObject.tag == "P_Sword")
         {
-            EnemyCoreHp -= 50;
+            EnemyCoreHp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
             coreSound.PlayOneShot(coreSoundAtack);
             damegge_particle.Play();
         }

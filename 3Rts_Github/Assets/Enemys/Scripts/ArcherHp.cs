@@ -13,7 +13,14 @@ public class ArcherHp : MonoBehaviour
     public ParticleSystem particle_sword;
 
     public AudioSource audioCrip_damage;
-    
+
+    void Start()
+    {
+        //particle_arrow.Stop();
+        //particle_sword.Stop();
+        player = GameObject.FindWithTag("Player");
+    }
+
     void Update()
     {
         if (hpUi)
@@ -59,6 +66,7 @@ public class ArcherHp : MonoBehaviour
             hpUi = true;
             audioCrip_damage.Play();
             particle_sword.Play();
+            Debug.Log(player.GetComponent<PlayerStatus>().AttackPower + "弓");
         }
 
         if (other.gameObject.tag == "P_Arrow")

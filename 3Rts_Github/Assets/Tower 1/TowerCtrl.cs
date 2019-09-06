@@ -8,11 +8,13 @@ public class TowerCtrl : MonoBehaviour
     public int Hp;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         particle_arrow.Stop();
         particle_sword.Stop();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -29,7 +31,8 @@ public class TowerCtrl : MonoBehaviour
     {
         if(other.gameObject.tag == "P_Sword")
         {
-            Hp -= 50;
+            //Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
+            Debug.Log(player.GetComponent<PlayerStatus>().AttackPower + "塔");
             particle_sword.Play();
         }
 
