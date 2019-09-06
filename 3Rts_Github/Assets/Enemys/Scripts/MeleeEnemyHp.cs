@@ -67,7 +67,7 @@ public class MeleeEnemyHp : MonoBehaviour
             hpUi = true;
             audioCrip_damage.Play();
             particle_sword.Play();
-            Debug.Log(player.GetComponent<PlayerStatus>().AttackPower+ "剣");
+            //Debug.Log(player.GetComponent<PlayerStatus>().AttackPower+ "剣");
         }
         
         if (other.gameObject.tag == "P_Arrow")

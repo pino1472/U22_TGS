@@ -31,8 +31,8 @@ public class TowerCtrl : MonoBehaviour
     {
         if(other.gameObject.tag == "P_Sword")
         {
-            //Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
-            Debug.Log(player.GetComponent<PlayerStatus>().AttackPower + "塔");
+            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
+            //Debug.Log(player.GetComponent<PlayerStatus>().AttackPower + "塔");
             particle_sword.Play();
         }
 
