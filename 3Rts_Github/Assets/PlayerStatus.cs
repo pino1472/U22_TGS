@@ -31,7 +31,6 @@ public class PlayerStatus : MonoBehaviour
         if (PHp <= 0)
         {
             PHp = 0;
-            PHp -= 20;
             GetComponent<Animator>().Play("Die");
         }
     }
@@ -50,31 +49,53 @@ public class PlayerStatus : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy_Sword")
+        switch (other.gameObject.tag)
         {
-            PHp -= 20;
-            //ダメージ後にパーティクル発生
-            DamegeSword.Play();
+            case "Enemy_Sword":
+                PHp -= 20;
+                //ダメージ後にパーティクル発生
+                DamegeSword.Play();
+                break;
+            case "Enemy_Arrow":
+                PHp -= 50;
+                DamegeArrow.Play();
+                break;
+            case "PtBullet":
+                PHp -= 1000;
+                //ダメージ後にパーティクル発生
+                DamegeTower.Play();
+                break;
+            case "EnemyCoreTowerBullet":
+                PHp -= 1000;
+                //ダメージ後にパーティクル発生
+                DamegeTower.Play();
+                break;
         }
+        //if (other.gameObject.tag == "Enemy_Sword")
+        //{
+        //    PHp -= 20;
+        //    //ダメージ後にパーティクル発生
+        //    DamegeSword.Play();
+        //}
 
-        if (other.gameObject.tag == "Enemy_Arrow")
-        {
-            PHp -= 50;
-            DamegeArrow.Play();
-        }
+        //if (other.gameObject.tag == "Enemy_Arrow")
+        //{
+        //    PHp -= 50;
+        //    DamegeArrow.Play();
+        //}
 
-        if (other.gameObject.tag == "PtBullet")
-        {
-            PHp -= 1000;
-            //ダメージ後にパーティクル発生
-            DamegeTower.Play();
-        }
-        if (other.gameObject.tag == "EnemyCoreTowerBullet")
-        {
-            PHp -= 1000;
-            //ダメージ後にパーティクル発生
-            DamegeTower.Play();
-        }
+        //if (other.gameObject.tag == "PtBullet")
+        //{
+        //    PHp -= 1000;
+        //    //ダメージ後にパーティクル発生
+        //    DamegeTower.Play();
+        //}
+        //if (other.gameObject.tag == "EnemyCoreTowerBullet")
+        //{
+        //    PHp -= 1000;
+        //    //ダメージ後にパーティクル発生
+        //    DamegeTower.Play();
+        //}
     }
 
     void Die()
