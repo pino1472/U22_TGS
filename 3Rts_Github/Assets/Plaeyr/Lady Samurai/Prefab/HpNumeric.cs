@@ -21,6 +21,14 @@ public class HpNumeric : MonoBehaviour
     void Update()
     {
         hpTmp.text = player.GetComponent<PlayerStatus>().PHp.ToString();
-        mpTmp.text = player.GetComponent<TurretSet>().militaryforce.ToString();        
+        mpTmp.text = player.GetComponent<TurretSet>().militaryforce.ToString();   
+        if (hpTmp.text == "0")
+        {
+            hpTmp.text = "0";//HPが0以下にならない
+        }
+        if(mpTmp.text == "0")
+        {
+            mpTmp.text = "0";//MPが0以下にならない
+        }
     }
 }
