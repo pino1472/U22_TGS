@@ -30,6 +30,8 @@ public class PlayerStatus : MonoBehaviour
     {
         if (PHp <= 0)
         {
+            PHp = 0;
+            PHp -= 20;
             GetComponent<Animator>().Play("Die");
         }
     }
