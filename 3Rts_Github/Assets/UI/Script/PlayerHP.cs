@@ -36,9 +36,9 @@ public class PlayerHP : MonoBehaviour
             }
                
         }
-        Hp.fillAmount = playerStatus.PHp / Maxhp;
-        
+        Hp.fillAmount = playerStatus.PHp / Maxhp;        
     }
+
     /// <summary>
     /// 切り取り用
     /// </summary>

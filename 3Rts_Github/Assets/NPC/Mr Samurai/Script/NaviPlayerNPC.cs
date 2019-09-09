@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class NaviPlayerNPC : MonoBehaviour
 {
@@ -27,8 +28,7 @@ public class NaviPlayerNPC : MonoBehaviour
     //出現時のラインの判定
     [SerializeField] bool isBotLine = false;
     private bool isTopLine = false;
-    //bool isMidLine = false;
-
+    
     [SerializeField]bool isEnemyAttack;// Enemyに王撃するフラグ
 
     private float searchTime = 0;//serchTagの探す時間
@@ -64,8 +64,12 @@ public class NaviPlayerNPC : MonoBehaviour
             midTower = lane_tower.OrderBy(e => Vector3.Distance(e.transform.position, p_core.transform.position)).ToArray();
         }
 
-        //タワーがあれば
-        SearchLine();
+        //
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            //タワーがあれば
+            SearchLine();
+        }
 
         if (core)
         {
@@ -298,32 +302,32 @@ public class NaviPlayerNPC : MonoBehaviour
     /// </summary>
     void SearchLine()
     {
-       
+
+
         if (botTower.Length >= 2)
         {
-            _nearTower[0] = serchTag(gameObject, "BotLine" );
+            _nearTower[0] = serchTag(gameObject, "BotLine");
         }
         else
         {
-            _nearTower[0] = serchTag(gameObject, "BotLine"); 
+            _nearTower[0] = serchTag(gameObject, "BotLine");
         }
         if (topTower.Length >= 2)
         {
-            _nearTower[1] = serchTag(gameObject, "TopLine" );
+            _nearTower[1] = serchTag(gameObject, "TopLine");
         }
         else
         {
-            _nearTower[1] = serchTag(gameObject, "TopLine"); 
+            _nearTower[1] = serchTag(gameObject, "TopLine");
         }
+
         if (midTower.Length >= 2)
         {
             _nearTower[2] = serchTag(gameObject, "MidLine");
         }
         else
         {
-            _nearTower[2] = serchTag(gameObject, "MidLine");
-
-            //            _nearTower[2] = core;
+            _nearTower[2] = serchTag(gameObject, "MidLine");            
         }
         nearTower = _nearTower.OrderBy(e => Vector3.Distance(e.transform.position, gameObject.transform.position)).ToArray();
         if (nearTower[0] != core)
