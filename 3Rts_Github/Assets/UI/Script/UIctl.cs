@@ -6,36 +6,39 @@ using TMPro;
 
 public class UIctl : MonoBehaviour
 {
-    /*[SerializeField] int e;
+    [SerializeField] int e;
     [SerializeField] Sprite[] Item;
     [SerializeField] GameObject[] Item_UI;
-    GameObject Back;*/
+    GameObject Back;
     [SerializeField] GameObject Player;
     [SerializeField]TextMeshProUGUI skillPointText;
     public int skillPoint,Point;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        /*Back = GameObject.Find("Item_Background");
+        Back = GameObject.Find("Item_Background");
         Back.SetActive(false);
-        for (int i = 0; i < Item_UI.Length; i++)
+        /*for (int i = 0; i < Item_UI.Length; i++)
         {
-<<<<<<< HEAD
+
             Item_UI[i].GetComponent<Image>().sprite = Item[i];//添え字を振っていく
         }
-=======
+
             Item_UI[i].GetComponent<Image>().sprite = Item[i];
-        }*/
+        */
 
     }
     // Update is called once per frame
     void Update()
     {
         skillPointText.text = skillPoint.ToString();
-        /*if (Input.GetAxisRaw("L R Trigger") < 0 || Input.GetKey("z"))
+        if (Input.GetAxisRaw("L R Trigger") < 0 || Input.GetKey("z"))
         {
             Back.SetActive(true);
-            if (Input.GetButtonDown("joystick Y"))
+            /*if (Input.GetButtonDown("joystick Y"))
             {
                 e--;
                 if (e < 0) e += Item.Length;//0まできたら最初に戻る
@@ -46,14 +49,22 @@ public class UIctl : MonoBehaviour
                 e++;
                 if (e >= Item.Length) e -= Item.Length;//要素数を超えないようにする→最初に戻る？
                 imagechange();
-            }*/
-           if (skillPoint > Point)
-           {
-            Player.GetComponent<PlayerStatus>().PHp += 500;
-            Player.GetComponent<TurretSet>().maxMilitary += 1;
-            Player.GetComponent<PlayerStatus>().AttackPower += 50;
-            Point += 1;
-            //skillPoint -= 1;
+            }
+            */
+            if (skillPoint > Point)
+            {
+                Player.GetComponent<PlayerStatus>().PHp += 500;
+                Player.GetComponent<PlayerStatus>().PHpMax += 500;
+
+                Player.GetComponent<PlayerStatus>().AttackPower += 50;
+                Player.GetComponent<PlayerStatus>().AttackPowerMax += 50;
+
+                Player.GetComponent<TurretSet>().maxMilitary += 1;
+
+                
+                Point += 1;
+                //skillPoint -= 1;
+            }
             /*if (Input.GetButtonDown("R1"))
             {
                 if (Item_UI[0].GetComponent<Image>().sprite.name == "体")
@@ -69,7 +80,12 @@ public class UIctl : MonoBehaviour
                     Player.GetComponent<PlayerStatus>().AttackPower += 50;
                 }
                 skillPoint -= 1;
-            }*/
+            }
+            */
+        }
+        else
+        {
+            Back.SetActive(false);
         }
     }
 

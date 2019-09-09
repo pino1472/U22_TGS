@@ -7,6 +7,10 @@ public class PlayerStatus : MonoBehaviour
     // Start is called before the first frame update
     public float PHp;
     public int AttackPower;
+
+    public float PHpMax;
+    public int AttackPowerMax;
+
     public ParticleSystem DamegeArrow;
     public ParticleSystem DamegeSword;
     public ParticleSystem DamegeTower;
@@ -18,7 +22,8 @@ public class PlayerStatus : MonoBehaviour
         DamegeArrow.Stop();//最初は停止
         DamegeSword.Stop();
         DamegeTower.Stop();
-
+        PHpMax = PHp;
+        AttackPowerMax = AttackPower;
     }
 
     private void Update()
