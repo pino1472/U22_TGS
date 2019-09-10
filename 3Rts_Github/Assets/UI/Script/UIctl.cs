@@ -53,11 +53,11 @@ public class UIctl : MonoBehaviour
             */
             if (skillPoint > Point)
             {
-                Player.GetComponent<PlayerStatus>().PHp += 500;
-                Player.GetComponent<PlayerStatus>().PHpMax += 500;
+                Player.GetComponent<PlayerStatus>().PHp += 25;
+                Player.GetComponent<PlayerStatus>().PHpMax += 25;
 
-                Player.GetComponent<PlayerStatus>().AttackPower += 50;
-                Player.GetComponent<PlayerStatus>().AttackPowerMax += 50;
+                Player.GetComponent<PlayerStatus>().AttackPower += 5;
+                Player.GetComponent<PlayerStatus>().AttackPowerMax += 5;
 
                 Player.GetComponent<TurretSet>().maxMilitary += 50;
 

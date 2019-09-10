@@ -32,7 +32,12 @@ public class AllyCoreCtrl : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            AllyCoreHP -= 10;
+            AllyCoreHP -= 20;
+            damage_particle.Play();
+        }
+        if (other.gameObject.tag == "Enemy_Arrow")
+        {
+            AllyCoreHP -= 40;
             damage_particle.Play();
         }
     }

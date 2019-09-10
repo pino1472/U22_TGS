@@ -86,4 +86,15 @@ public class CanonBullet : MonoBehaviour
     //    //return GameObject.Find(nearObjName);
     //    return targetObj;
     //}
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == nearObj.gameObject.tag)
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == nearObj.gameObject.tag)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

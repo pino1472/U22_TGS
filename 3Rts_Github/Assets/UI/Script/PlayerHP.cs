@@ -16,22 +16,22 @@ public class PlayerHP : MonoBehaviour
     {
         //nowHp = hoge.GetnowHp();
         playerStatus = Player.GetComponent<PlayerStatus>();
-        Maxhp = playerStatus.PHp;
+        Maxhp = playerStatus.PHpMax;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerStatus.PHp > Maxhp)
+        if(playerStatus.PHpMax > Maxhp)
         {
-            Maxhp = playerStatus.PHp;
+            Maxhp = playerStatus.PHpMax;
         }
-        if(Maxhp > playerStatus.PHp + (Maxhp  / 500 ))
+        if(Maxhp > playerStatus.PHp + (Maxhp  / Maxhp ))
         {
             time += Time.deltaTime;
-            if (time > 1 )
+            if (time > 2 )
             {
-                playerStatus.PHp += Maxhp / 500;
+                playerStatus.PHp += Maxhp / Maxhp;
                 time = 0;
             }
                

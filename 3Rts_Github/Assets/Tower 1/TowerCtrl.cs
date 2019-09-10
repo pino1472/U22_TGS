@@ -8,7 +8,7 @@ public class TowerCtrl : MonoBehaviour
     public int Hp;
     public ParticleSystem particle_arrow;
     public ParticleSystem particle_sword;
-    public GameObject player;
+    public GameObject player, nearObj;
     // Start is called before the first frame update
     void Start()
     {

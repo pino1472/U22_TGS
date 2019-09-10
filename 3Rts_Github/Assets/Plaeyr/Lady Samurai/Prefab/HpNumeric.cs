@@ -20,7 +20,7 @@ public class HpNumeric : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mpTmp.text = player.GetComponent<TurretSet>().militaryforce.ToString();
+        mpTmp.text = player.GetComponent<TurretSet>().militaryforce.ToString("F0");
 
         if (hpTmp.text == "0")
         {
@@ -28,7 +28,7 @@ public class HpNumeric : MonoBehaviour
         }
         else
         {
-            hpTmp.text = player.GetComponent<PlayerStatus>().PHp.ToString();
+            hpTmp.text = player.GetComponent<PlayerStatus>().PHp.ToString("F0");
         }
     }
 }

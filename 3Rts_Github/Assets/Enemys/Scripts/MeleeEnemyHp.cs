@@ -57,13 +57,13 @@ public class MeleeEnemyHp : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC_Sword")
         {
-            Hp -= 20;
+            Hp -= 10;
             audioCrip_damage.Play();
             particle_sword.Play();
         }
         if (other.gameObject.tag == "P_Sword")
         {             
-            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
+            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 20;
             hpUi = true;
             audioCrip_damage.Play();
             particle_sword.Play();
