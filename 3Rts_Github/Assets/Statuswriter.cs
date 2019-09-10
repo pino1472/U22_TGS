@@ -15,7 +15,7 @@ public class Statuswriter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerValue = Player.GetComponent<PlayerStatus>().AttackPowerMax+50;
+        powerValue = Player.GetComponent<PlayerStatus>().AttackPowerMax + 5;
         hpValue = Player.GetComponent<PlayerStatus>().PHpMax;
         armyValue = Player.GetComponent<TurretSet>().maxMilitary;
     }
@@ -23,7 +23,7 @@ public class Statuswriter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        powerValue = Player.GetComponent<PlayerStatus>().AttackPowerMax + 50;
+        powerValue = Player.GetComponent<PlayerStatus>().AttackPowerMax + 5;
         hpValue = Player.GetComponent<PlayerStatus>().PHpMax;
         armyValue = Player.GetComponent<TurretSet>().maxMilitary;
 

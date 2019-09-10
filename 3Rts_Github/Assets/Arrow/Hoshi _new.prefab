@@ -6094,8 +6094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af1a125ce082f04da24a57800679eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PHp: 10000
+  PHp: 100
   AttackPower: 0
+  PHpMax: 0
+  AttackPowerMax: 0
   DamegeArrow: {fileID: 0}
   DamegeSword: {fileID: 0}
   DamegeTower: {fileID: 0}
@@ -8810,14 +8812,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7696762973704849381}
     m_Modifications:
-    - target: {fileID: 1590645654980816, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
-      propertyPath: m_Name
-      value: slash-2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590645654980816, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4563464477450312, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.18000007
@@ -8862,6 +8856,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1590645654980816, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
+      propertyPath: m_Name
+      value: slash-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590645654980816, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 198644868753204056, guid: 6643b0f337df9be4da7cac8152b58de8,
         type: 3}
       propertyPath: InitialModule.startRotationX.scalar
@@ -8876,11 +8878,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.rotation3D
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114686728535832558, guid: 6643b0f337df9be4da7cac8152b58de8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1816159559337800, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
       propertyPath: m_Layer
@@ -8901,6 +8898,11 @@ PrefabInstance:
     - target: {fileID: 1571466076077592, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114686728535832558, guid: 6643b0f337df9be4da7cac8152b58de8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6643b0f337df9be4da7cac8152b58de8, type: 3}
