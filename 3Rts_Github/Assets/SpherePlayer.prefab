@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 7416168883449989246}
   - component: {fileID: 9082459513088178760}
   - component: {fileID: 2766992095145544151}
-  - component: {fileID: 6210135271171733286}
   - component: {fileID: 6095500260938394331}
   m_Layer: 0
   m_Name: SpherePlayer
@@ -108,18 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   nearObj: {fileID: 0}
---- !u!114 &6210135271171733286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5543498623543513331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71016341232c7c94ea62d62884bc676e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6095500260938394331
 Rigidbody:
   m_ObjectHideFlags: 0

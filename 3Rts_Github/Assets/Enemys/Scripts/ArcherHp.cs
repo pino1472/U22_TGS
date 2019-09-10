@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArcherHp : MonoBehaviour
 {
-    public int Hp;
+    public int Hp = 75;
     public float up = 0.1f;
     float uiTime;
     public bool hpUi;
@@ -56,13 +56,13 @@ public class ArcherHp : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC_Sword")
         {
-            Hp -= 20;
+            Hp -= 15;
             audioCrip_damage.Play();
             particle_sword.Play();
         }
         if (other.gameObject.tag == "P_Sword")
         {
-            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 50;
+            Hp -= player.GetComponent<PlayerStatus>().AttackPower + 5;
             hpUi = true;
             audioCrip_damage.Play();
             particle_sword.Play();
@@ -71,7 +71,7 @@ public class ArcherHp : MonoBehaviour
 
         if (other.gameObject.tag == "P_Arrow")
         {
-            Hp -= 40;
+            Hp -= 25;
             hpUi = true;
             particle_arrow.Play();
         }

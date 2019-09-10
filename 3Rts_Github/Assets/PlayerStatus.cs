@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+
 public class PlayerStatus : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -14,7 +16,6 @@ public class PlayerStatus : MonoBehaviour
     public ParticleSystem DamegeArrow;
     public ParticleSystem DamegeSword;
     public ParticleSystem DamegeTower;
-
 
     // Start is called before the first frame update
     void Start()
@@ -47,29 +48,34 @@ public class PlayerStatus : MonoBehaviour
 
     //}
 
+   
+
     public void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
         {
             case "Enemy_Sword":
-                PHp -= 20;
+                PHp -= 1f;
                 //ダメージ後にパーティクル発生
                 DamegeSword.Play();
                 break;
             case "Enemy_Arrow":
-                PHp -= 50;
+                PHp -= 2;
                 DamegeArrow.Play();
                 break;
-            case "PtBullet":
-                PHp -= 1000;
-                //ダメージ後にパーティクル発生
-                DamegeTower.Play();
-                break;
             case "EnemyCoreTowerBullet":
-                PHp -= 1000;
+                PHp -= 40;
                 //ダメージ後にパーティクル発生
                 DamegeTower.Play();
                 break;
+        }
+        if (other.gameObject.tag == "PtBullet")
+                if(other.gameObject.GetComponent<CanonBullet>().nearObj == gameObject)
+        {
+                PHp -= 20;
+        //ダメージ後にパーティクル発生
+        DamegeTower.Play();
+
         }
         //if (other.gameObject.tag == "Enemy_Sword")
         //{
