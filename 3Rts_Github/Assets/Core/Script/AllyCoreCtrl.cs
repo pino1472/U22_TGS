@@ -17,7 +17,7 @@ public class AllyCoreCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(AllyCoreHP == 0)
+        if(AllyCoreHP <= 0)
         {
             FadeManager.Instance.LoadScene("Over",0.5f);
 
