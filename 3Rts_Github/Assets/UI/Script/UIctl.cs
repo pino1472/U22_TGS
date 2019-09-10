@@ -59,7 +59,7 @@ public class UIctl : MonoBehaviour
                 Player.GetComponent<PlayerStatus>().AttackPower += 50;
                 Player.GetComponent<PlayerStatus>().AttackPowerMax += 50;
 
-                Player.GetComponent<TurretSet>().maxMilitary += 1;
+                Player.GetComponent<TurretSet>().maxMilitary += 50;
 
                 
                 Point += 1;
