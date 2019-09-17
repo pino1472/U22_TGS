@@ -51,14 +51,14 @@ public class NpcStatus : MonoBehaviour
         {
             ladyUITime = 0;
             ladyHpUI = true;
-            Hp -= 100;
+            Hp -= 50;
             damage_Particle.Play();
         }      
         if (other.gameObject.tag == "Enemy_Arrow")
         {
             ladyUITime = 0;
             ladyHpUI = true;
-            Hp -= 500;
+            Hp -= 100;
             damage_Particle.Play();
         }
         if (other.gameObject.tag  == "PtBullet")

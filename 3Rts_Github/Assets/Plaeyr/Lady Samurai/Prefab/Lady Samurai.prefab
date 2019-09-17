@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d011f00b14b614eb980b5dafb537cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 500
+  Hp: 250
   ladyHpUI: 0
   damage_Particle: {fileID: 5122299689734028671}
 --- !u!114 &6771487816101948705
@@ -2988,6 +2988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4056063412343558}
     m_Modifications:
+    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas_lady
+      objectReference: {fileID: 0}
     - target: {fileID: 6001118218191938740, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3092,11 +3097,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927792343166535274, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas_lady
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6419328243800286985, guid: 5e6d616e77bd8bb4c84bb5f282c82cd8, type: 3}

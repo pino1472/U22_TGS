@@ -5,7 +5,8 @@ using UnityEngine;
 public class Hpvar : MonoBehaviour
 {
     GameObject player;
-    [SerializeField]bool pcr;                       //HPバーの可視化
+    [SerializeField] GameObject enemy;
+    [SerializeField]bool pcr,isArcher;                       //HPバーの可視化
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,13 @@ public class Hpvar : MonoBehaviour
     void Update()
     {
         pcr = player.GetComponent<PlayerController>().HPvar;
-
+        isArcher = enemy.GetComponent<ArcherHp>().hpUi;
         Vector3 targetPos = Camera.main.transform.position;
         // ターゲットのY座標を自分と同じにすることで2次元に制限する。
         targetPos.y = this.transform.position.y;
         transform.LookAt(targetPos);
 
-        if (pcr == true)
+        if (pcr == true||isArcher==true)
         {
             transform.GetChild(0).gameObject.SetActive(true);
         }
